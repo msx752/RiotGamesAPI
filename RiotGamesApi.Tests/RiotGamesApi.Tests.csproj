@@ -17,7 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RiotGamesApi.AspNetCore\RiotGamesApi.AspNetCore.csproj" />
-    <ProjectReference Include="..\RiotGamesApi.Web\RiotGamesApi.Web.csproj" />
+    <ProjectReference Include="..\RiotGamesApi.AspNetCore.Web\RiotGamesApi.AspNetCore.Web.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="appsettings.json">

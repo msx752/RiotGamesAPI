@@ -40,51 +40,6 @@ namespace RiotGamesApi
         /// <param name="riotApiKey">
         /// RiotGames DeveloperKey or ProductionKey 
         /// </param>
-        /// <exception cref="Exception">
-        /// A delegate callback throws an exception. 
-        /// </exception>
-        public static void AddLeagueOfLegendsApi(this IServiceCollection services, string riotApiKey)
-        {
-            AddLeagueOfLegendsApi(services, riotApiKey, null, null);
-        }
-
-        /// <summary>
-        /// necessary for using LeagueOfLegendsApi 
-        /// </summary>
-        /// <param name="services">
-        /// </param>
-        /// <param name="riotApiKey">
-        /// RiotGames DeveloperKey or ProductionKey 
-        /// </param>
-        /// <param name="cacheOption">
-        /// custom api caching options (default: ApiCaching is NOT USED ) 
-        /// </param>
-        /// <exception cref="Exception">
-        /// A delegate callback throws an exception. 
-        /// </exception>
-        public static void AddLeagueOfLegendsApi(this IServiceCollection services, string riotApiKey,
-            Func<CacheOption, CacheOption> cacheOption)
-        {
-            AddLeagueOfLegendsApi(services, riotApiKey, cacheOption, null);
-        }
-
-        /// <exception cref="Exception">
-        /// A delegate callback throws an exception. 
-        /// </exception>
-        public static void AddLeagueOfLegendsApi(this IServiceCollection services, string riotApiKey,
-            Func<RateLimitData, RateLimitData> rateLimitOption2)
-        {
-            AddLeagueOfLegendsApi(services, riotApiKey, null, rateLimitOption2);
-        }
-
-        /// <summary>
-        /// necessary for using LeagueOfLegendsApi 
-        /// </summary>
-        /// <param name="services">
-        /// </param>
-        /// <param name="riotApiKey">
-        /// RiotGames DeveloperKey or ProductionKey 
-        /// </param>
         /// <param name="cacheOption">
         /// [overrides all default values] custom api caching options (default: ApiCaching is NOT
         /// USED )
@@ -400,10 +355,9 @@ namespace RiotGamesApi
         /// </param>
         /// <returns>
         /// </returns>
-        public static IServiceProvider UseRiotGamesApiServiceProvider(this IServiceProvider sProvider)
+        public static void UseRiotGamesApiServiceProvider(this IServiceProvider sProvider)
         {
             ApiSettings.ServiceProvider = sProvider;
-            return sProvider;
         }
     }
 }

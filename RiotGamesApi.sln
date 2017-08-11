@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RiotGamesApi", "RiotGamesAp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RiotGamesApi.AspNetCore", "RiotGamesApi.AspNetCore\RiotGamesApi.AspNetCore.csproj", "{D1C3257C-4F15-4F7D-9CA5-7B26F73AB9FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiotGamesApi.Tests", "RiotGamesApi.Tests\RiotGamesApi.Tests.csproj", "{7D6C83F5-4BC9-4371-96A9-C2E84FB461D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RiotGamesApi.Tests", "RiotGamesApi.Tests\RiotGamesApi.Tests.csproj", "{7D6C83F5-4BC9-4371-96A9-C2E84FB461D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiotGamesApi.Web", "RiotGamesApi.Web\RiotGamesApi.Web.csproj", "{0039E505-521A-48C7-B5E3-E1EC328FFE3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RiotGamesApi.AspNetCore.Web", "RiotGamesApi.AspNetCore.Web\RiotGamesApi.AspNetCore.Web.csproj", "{0039E505-521A-48C7-B5E3-E1EC328FFE3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
