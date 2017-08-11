@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Reflection;
 using Newtonsoft.Json;
 using RiotGamesApi.Library;
@@ -21,7 +22,7 @@ namespace RiotGamesApi.Library.Converters
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                Debug.WriteLine(e);
                 enumVal = (TEnum)Enum.Parse(typeof(TEnum), "UNDEFINED", true);
             }
             return enumVal;

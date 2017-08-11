@@ -8,6 +8,13 @@ namespace RiotGamesApi.AspNet.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private Api LolApi { get; set; }
+
+        public HomeController()
+        {
+            LolApi = ApiSettings.GetService<Api>();
+        }
+
         public ActionResult Index()
         {
             return View();

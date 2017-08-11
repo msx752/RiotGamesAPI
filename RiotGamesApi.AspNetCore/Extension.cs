@@ -23,7 +23,7 @@ namespace RiotGamesApi.AspNetCore
         /// </exception>
         public static void AddLeagueOfLegendsApi(this IServiceCollection services, string riotApiKey)
         {
-            RiotGamesApi.Extension2.AddLeagueOfLegendsApi(services, riotApiKey, null, null);
+            global::RiotGamesApi.Extension2.AddLeagueOfLegendsApi(services, riotApiKey, null, null);
         }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace RiotGamesApi.AspNetCore
         public static void AddLeagueOfLegendsApi(this IServiceCollection services, string riotApiKey,
             Func<CacheOption, CacheOption> cacheOption)
         {
-            RiotGamesApi.Extension2.AddLeagueOfLegendsApi(services, riotApiKey, cacheOption, null);
+            global::RiotGamesApi.Extension2.AddLeagueOfLegendsApi(services, riotApiKey, cacheOption, null);
         }
 
         /// <exception cref="Exception">
@@ -52,7 +52,7 @@ namespace RiotGamesApi.AspNetCore
         public static void AddLeagueOfLegendsApi(this IServiceCollection services, string riotApiKey,
             Func<RateLimitData, RateLimitData> rateLimitOption2)
         {
-            RiotGamesApi.Extension2.AddLeagueOfLegendsApi(services, riotApiKey, null, rateLimitOption2);
+            global::RiotGamesApi.Extension2.AddLeagueOfLegendsApi(services, riotApiKey, null, rateLimitOption2);
         }
 
         /// <summary>

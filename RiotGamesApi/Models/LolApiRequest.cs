@@ -142,12 +142,12 @@ namespace RiotGamesApi.Models
                 catch (RiotGamesApiException e)
                 {
                     RiotResult.Exception = e;
-                    Console.WriteLine(e);
+                    Debug.WriteLine(e);
                 }
                 catch (Exception e)
                 {
                     RiotResult.Exception = e;
-                    Console.WriteLine(e);
+                    Debug.WriteLine(e);
                 }
                 return RiotResult;
             });
@@ -194,12 +194,12 @@ namespace RiotGamesApi.Models
                 catch (RiotGamesApiException e)
                 {
                     RiotResult.Exception = e;
-                    Console.WriteLine(e);
+                    Debug.WriteLine(e);
                 }
                 catch (Exception e)
                 {
                     RiotResult.Exception = e;
-                    Console.WriteLine(e);
+                    Debug.WriteLine(e);
                 }
                 return RiotResult;
             });
@@ -239,12 +239,12 @@ namespace RiotGamesApi.Models
                 catch (RiotGamesApiException e)
                 {
                     RiotResult.Exception = e;
-                    Console.WriteLine(e);
+                    Debug.WriteLine(e);
                 }
                 catch (Exception e)
                 {
                     RiotResult.Exception = e;
-                    Console.WriteLine(e);
+                    Debug.WriteLine(e);
                 }
                 return RiotResult;
             });

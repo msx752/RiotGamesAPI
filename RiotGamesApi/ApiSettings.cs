@@ -18,7 +18,7 @@ namespace RiotGamesApi
         {
             get
             {
-                return (IApiCache)ServiceProvider.GetService(typeof(IApiCache));
+                return GetService<IApiCache>();
             }
         }
 
@@ -29,7 +29,7 @@ namespace RiotGamesApi
         {
             get
             {
-                return (IApiOption)ServiceProvider.GetService(typeof(IApiOption));
+                return GetService<IApiOption>();
             }
         }
 
@@ -40,7 +40,7 @@ namespace RiotGamesApi
         {
             get
             {
-                return (ApiRate)ServiceProvider.GetService(typeof(ApiRate));
+                return GetService<ApiRate>();
             }
         }
 
@@ -57,6 +57,11 @@ namespace RiotGamesApi
             }
         }
 
+        public static T GetService<T>()
+        {
+            return (T)ServiceProvider.GetService(typeof(T));
+        }
+
         /// <summary>
         /// .net core controller of memory caching 
         /// </summary>
@@ -64,7 +69,7 @@ namespace RiotGamesApi
         {
             get
             {
-                return (IMemoryCache)ServiceProvider.GetService(typeof(IMemoryCache));
+                return GetService<IMemoryCache>();
             }
         }
     }

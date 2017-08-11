@@ -56,12 +56,12 @@ namespace RiotGamesApi
                 }
                 catch (RiotGamesApiException e)
                 {
-                    Console.WriteLine(e);
+                    Debug.WriteLine(e);
                     throw;
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e);
+                    Debug.WriteLine(e);
                     throw;
                 }
             }
@@ -148,12 +148,12 @@ namespace RiotGamesApi
             }
             catch (RiotGamesApiException e)
             {
-                Console.WriteLine(e);
+                Debug.WriteLine(e);
                 throw;
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                Debug.WriteLine(e);
                 throw;
             }
             return lar;
