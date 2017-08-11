@@ -1,0 +1,29 @@
+﻿@using RiotGamesApi.Library.v3.NonStaticEndPoints.ChampionMastery
+@model RiotGamesApi.Interfaces.IResult<List<RiotGamesApi.Library.v3.NonStaticEndPoints.ChampionMastery.ChampionMasteryDto>>
+@{
+    ViewBag.Title = "RiotGamesApi";
+}
+<div class="row">
+    <div class="col-md-3">
+        <h2>RiotGamesApi</h2>
+        <p>
+            <span>HasError: @Model.HasError</span>
+            <br />
+            <span>Exception: @(Model.Exception?.ToString())</span>
+            <br />
+            @{
+                foreach (var champion in Model.Result)
+                {
+                    <br />
+                    <span>PlayerId: @champion.PlayerId</span>
+                    <br />
+                    <span>ChampionId: @champion.ChampionId</span>
+                    <br />
+                    <span>LastPlayTime: @champion.LastPlayTime</span>
+                    <br />
+                }
+
+            }
+        </p>
+    </div>
+</div>

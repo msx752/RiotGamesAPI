@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+    <metadata>
+        <id>RiotGamesApi</id>
+        <version>1.0.0</version>
+        <title>A Portable RiotGames v3 and upper API Wrapper for C#</title>
+        <authors>Mustafa Salih ASLIM</authors>
+        <owners>Mustafa Salih ASLIM</owners>
+        <licenseUrl>https://github.com/msx752/RiotGamesApi/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://riotgamesapi.readme.io</projectUrl>
+        <iconUrl>https://github.com/msx752/RiotGamesApi/blob/master/wfc.png?raw=true</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>The goal of this project is to allow C# developers who intend to use the Riot Games Web API to pull data from the server easily.(special thanks to Albin Ma)</description>
+        <summary>A portable RiotGames LeagueOfLegends API wrapper v3 and upper.</summary>
+        <releaseNotes />
+        <copyright>Copyright 2017</copyright>
+        <language />
+        <tags>RiotGamesApi Riot Games League of Legends Web API v3 C# Wrapper Portable</tags>
+        <dependencies>
+            <group targetFramework=".NETStandard1.4">
+                <dependency id="DeepCloner" version="0.10.1" />
+                <dependency id="Microsoft.Extensions.Caching.Memory" version="1.1.2" />
+                <dependency id="Microsoft.Extensions.DependencyInjection" version="1.1.1" />
+                <dependency id="Newtonsoft.Json" version="10.0.3" />
+            </group>
+        </dependencies>
+    </metadata>
+    <files>
+    	<file src="RiotGamesApi\readme.txt" target="" />
+        <file src="RiotGamesApi\bin\Release\netstandard1.4\RiotGamesApi.dll" target="lib\netstandard1.4\RiotGamesApi.dll" />
+        <file src="RiotGamesApi\bin\Release\netstandard1.4\RiotGamesApi.xml" target="lib\netstandard1.4\RiotGamesApi.xml" />
+    </files>
+</package>
