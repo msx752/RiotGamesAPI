@@ -2,13 +2,13 @@
 ##
 #	as i mentioned before(in website), this is the last huge
 # reference changes, there is no any huge changes like this
-#		i am sorry for the re-configuration
-# this changes are important for new game's api for RiotGames, so 
-# there will be new game in RiotGames (because it's a company there will be :] ),
-# we can add their apis in this package easily, of course some conflicts may occurs
-# such as RateLimiting, ApiRequest, ApiOptions, Enum-Types but i have added interfaces for the guide
-# i know lack of comments in here but it is not easy to understand the methodology
-# feel free to add any comment/summary in codes, if you have any question, you can ask.
+#		i am sorry for the re-configuration.
+# This changes are important to new game's api for RiotGames, so 
+# there will be new game in RiotGames (because it's a company there will be :] ).
+# We can add their apis in this package easily (Libraries\[ShortGameName]\), of course some conflicts may occurs
+# such as RateLimiting, ApiRequest, ApiOptions, Enum-Types but i have added interfaces for the guide.
+# I know lack of comments in here but it is not hard to understand the methodology
+# feel free to add any comment/summary in codes. If you have any question, you can ask.
 ##
 
 # Portable RiotGamesApi v3 and upper API Wrapper
