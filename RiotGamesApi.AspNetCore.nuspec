@@ -29,6 +29,7 @@
         </dependencies>
     </metadata>
     <files>
+    <file src="RiotGamesApi.AspNetCore\readme.txt" target="" />
     <file src="RiotGamesApi.AspNetCore\bin\Release\netcoreapp1.1\RiotGamesApi.AspNetCore.dll" target="lib\netcoreapp11\RiotGamesApi.AspNetCore.dll" />
     <file src="RiotGamesApi.AspNetCore\bin\Release\netcoreapp1.1\RiotGamesApi.AspNetCore.xml" target="lib\netcoreapp11\RiotGamesApi.AspNetCore.xml" />
     <file src="RiotGamesApi.AspNetCore\bin\Release\netcoreapp1.1\RiotGamesApi.AspNetCore.deps.json" target="lib\netcoreapp11\RiotGamesApi.AspNetCore.deps.json" />
