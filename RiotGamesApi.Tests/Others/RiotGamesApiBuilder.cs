@@ -7,9 +7,9 @@ namespace RiotGamesApi.Tests.Others
         [Fact]
         public void ApiToStaticClass()
         {
-            //RiotGamesApi.AspNetCore.Api auto cs generetor
-            //after api developing use this method and change Api.cs with output
-            string output = Extension5.GenerateApiClass();
+            //RiotGamesApi.LolApi auto cs generetor
+            //after api developing use this method and change LolApi.cs with output
+            string output = Extension5.GenerateLolApiClass();
         }
     }
 }

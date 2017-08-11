@@ -12,7 +12,7 @@ namespace RiotGamesApi
     {
         #region api class generetor
 
-        public static string GenerateApiClass()
+        public static string GenerateLolApiClass()
         {
             string nameOfNs = typeof(ApiSettings).Namespace;
             Dictionary<LolUrlType, string> Classes = new Dictionary<LolUrlType, string>();
@@ -240,6 +240,7 @@ namespace RiotGamesApi
                                  $"using System.Collections.Generic;\r\n" +
                                  $"using System.Threading.Tasks;\r\n" +
                                  $"using {Namespace}.Libraries.Enums;\r\n" +
+                                 $"using {Namespace}.Libraries.Lol.Enums;\r\n" +
                                  $"using {Namespace}.Libraries.Lol.Enums.GameConstants; ";
 
             return @references;
