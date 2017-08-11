@@ -3,15 +3,15 @@
     <metadata>
         <id>RiotGamesApi</id>
         <version>1.0.0</version>
-        <title>Portable RiotGames v3 and upper API Wrapper for C#</title>
+        <title>A Portable RiotGames v3 and upper API Wrapper for C#</title>
         <authors>Mustafa Salih ASLIM</authors>
         <owners>Mustafa Salih ASLIM</owners>
-        <licenseUrl>https://github.com/msx752/RiotGamesApi.AspNetCore/blob/master/LICENSE</licenseUrl>
+        <licenseUrl>https://github.com/msx752/RiotGamesApi/blob/master/LICENSE</licenseUrl>
         <projectUrl>https://riotgamesapi.readme.io</projectUrl>
-        <iconUrl>https://github.com/msx752/RiotGamesApi.AspNetCore/blob/master/wfc.png?raw=true</iconUrl>
+        <iconUrl>https://github.com/msx752/RiotGamesApi/blob/master/wfc.png?raw=true</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>The goal of this project is to allow C# developers who intend to use the Riot Games Web API to pull data from the server easily.(special thanks to Albin Ma)</description>
-        <summary>A portable c# library that intuitively requests data from Riot Game's Web API service using fluent design pattern.</summary>
+        <summary>A portable RiotGames LeagueOfLegends API wrapper v3 and upper.</summary>
         <releaseNotes />
         <copyright>Copyright 2017</copyright>
         <language />

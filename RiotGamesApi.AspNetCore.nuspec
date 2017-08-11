@@ -3,15 +3,15 @@
     <metadata>
          <id>RiotGamesApi.AspNetCore</id>
         <version>1.0.0.0</version>
-         <title>RiotGamesApi AspNetCore Wrapper</title>
+         <title>RiotGamesApi AspNetCore Middleware</title>
         <authors>Mustafa Salih ASLIM</authors>
         <owners>Mustafa Salih ASLIM</owners>
-        <licenseUrl>https://github.com/msx752/RiotGamesApi.AspNetCore/blob/master/LICENSE</licenseUrl>
+        <licenseUrl>https://github.com/msx752/RiotGamesApi/blob/master/LICENSE</licenseUrl>
         <projectUrl>https://riotgamesapi.readme.io</projectUrl>
-        <iconUrl>https://github.com/msx752/RiotGamesApi.AspNetCore/blob/master/wfc.png?raw=true</iconUrl>
+        <iconUrl>https://github.com/msx752/RiotGamesApi/blob/master/wfc.png?raw=true</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>C# AspNetCore LeagueOfLegends RiotGames v3 and upper API wapper.</description>
-        <summary>RiotGames LeagueOfLegends API wrapper v3 and upper AspNetCore</summary>
+        <description>C# RiotGamesApi AspNetCore Middleware.</description>
+        <summary>C# RiotGamesApi AspNetCore Middleware</summary>
         <releaseNotes></releaseNotes>
         <copyright>Copyright 2017</copyright>
         <language />
