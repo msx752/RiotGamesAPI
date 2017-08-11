@@ -29,5 +29,6 @@
     	<file src="RiotGamesApi\readme.txt" target="" />
         <file src="RiotGamesApi\bin\Release\netstandard1.4\RiotGamesApi.dll" target="lib\netstandard1.4\RiotGamesApi.dll" />
         <file src="RiotGamesApi\bin\Release\netstandard1.4\RiotGamesApi.xml" target="lib\netstandard1.4\RiotGamesApi.xml" />
+        <file src="RiotGamesApi\bin\Release\netstandard1.4\RiotGamesApi.deps.json" target="lib\netstandard1.4\RiotGamesApi.deps.json" />
     </files>
 </package>
