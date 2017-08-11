@@ -1,6 +1,8 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/ktka9cfk1rxe2mt3?svg=true)](https://ci.appveyor.com/project/msx752/riotgamesapi)
 [![nuget](https://img.shields.io/badge/Nuget-RiotGamesApi-brightgreen.svg?style=flat&maxAge=259200)](https://www.nuget.org/packages/RiotGamesApi)
-[![NuGet](https://img.shields.io/nuget/v/RiotGamesApi.svg?style=flat)](https://www.nuget.org/packages/RiotGamesApi)
+[![nuget](https://img.shields.io/badge/Nuget-RiotGamesApi.AspNet-brightgreen.svg?style=flat&maxAge=259200)](https://www.nuget.org/packages/RiotGamesApi.AspNet)
+[![nuget](https://img.shields.io/badge/Nuget-RiotGamesApi.AspNetCore-brightgreen.svg?style=flat&maxAge=259200)](https://www.nuget.org/packages/RiotGamesApi.AspNetCore)
+
 
 # RiotGamesApi
 A Portable RiotGames v3 and upper API Wrapper for C#
@@ -9,10 +11,10 @@ A Portable RiotGames v3 and upper API Wrapper for C#
 - https://riotgamesapi.readme.io
 
 ## .Net Core 1.1 Middleware
-- https://www.nuget.org/packages/RiotGamesApi.AspNetCore/
+- https://github.com/msx752/RiotGamesApi/tree/master/RiotGamesApi.AspNetCore/
 
 ## .Net 4.6.2 Middleware
-- https://www.nuget.org/packages/RiotGamesApi.AspNet/
+- https://github.com/msx752/RiotGamesApi/tree/master/RiotGamesApi.AspNet/
 
 ## API Table
 ApiName | Version
