@@ -82,22 +82,22 @@ build_script:
     nuget restore;
     dotnet msbuild /p:Configuration=Release /p:Version=$newBuildNumber;
 
-    $riotgamesapi = $($env:APPVEYOR_PROJECT_NAME);
+    $riotgamesapi = "$($env:APPVEYOR_PROJECT_NAME)";
     Write-Host  $riotgamesapi;
 
-    $riotgamesapiAspNet = $($env:APPVEYOR_PROJECT_NAME).AspNet;
+    $riotgamesapiAspNet = "$riotgamesapi.AspNet";
     Write-Host  $riotgamesapiAspNet;
 
-    $riotgamesapiAspNetCore = $($env:APPVEYOR_PROJECT_NAME).AspNetCore;
+    $riotgamesapiAspNetCore = "$riotgamesapi.AspNetCore";
     Write-Host  $riotgamesapiAspNetCore;
 
-    nuget pack $($riotgamesapi).nuspec -version $newBuildNumber;
-    nuget pack $($riotgamesapiAspNet).nuspec -version $newBuildNumber;
-    nuget pack $($riotgamesapiAspNetCore).nuspec -version $newBuildNumber;
+    nuget pack "$riotgamesapi.nuspec" -version $newBuildNumber;
+    nuget pack "$riotgamesapiAspNet.nuspec" -version $newBuildNumber;
+    nuget pack "$riotgamesapiAspNetCore.nuspec" -version $newBuildNumber;
 
-    Push-AppveyorArtifact "$($env:APPVEYOR_BUILD_FOLDER)\$riotgamesapi.$SVersion.nupkg" -FileName "$riotgamesapi.$SVersion.nupkg" -DeploymentName $riotgamesapi;
-    Push-AppveyorArtifact "$($env:APPVEYOR_BUILD_FOLDER)\$riotgamesapiAspNet.$SVersion.nupkg" -FileName "$riotgamesapiAspNet.$SVersion.nupkg" -DeploymentName $riotgamesapiAspNet;
-    Push-AppveyorArtifact "$($env:APPVEYOR_BUILD_FOLDER)\$riotgamesapiAspNetCore.$SVersion.nupkg" -FileName "$riotgamesapiAspNetCore.$SVersion.nupkg" -DeploymentName $riotgamesapiAspNetCore;
+    #Push-AppveyorArtifact "$($env:APPVEYOR_BUILD_FOLDER)\$riotgamesapi.$SVersion.nupkg" -FileName "$riotgamesapi.$SVersion.nupkg" -DeploymentName "$riotgamesapi";
+    #Push-AppveyorArtifact "$($env:APPVEYOR_BUILD_FOLDER)\$riotgamesapiAspNet.$SVersion.nupkg" -FileName "$riotgamesapiAspNet.$SVersion.nupkg" -DeploymentName "$riotgamesapiAspNet";
+    #Push-AppveyorArtifact "$($env:APPVEYOR_BUILD_FOLDER)\$riotgamesapiAspNetCore.$SVersion.nupkg" -FileName "$riotgamesapiAspNetCore.$SVersion.nupkg" -DeploymentName "$riotgamesapiAspNetCore";
 
     }
     else
