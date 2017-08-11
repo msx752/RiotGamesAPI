@@ -31,7 +31,7 @@ SPECTATOR | [V3](https://github.com/msx752/RiotGamesApi/tree/master/RiotGamesApi
 SUMMONER | [V3](https://github.com/msx752/RiotGamesApi/tree/master/RiotGamesApi/Libraries/Lol/v3/NonStaticEndPoints/Summoner)
 TOURNAMENT-STUB| [V3](https://github.com/msx752/RiotGamesApi/tree/master/RiotGamesApi/Libraries/Lol/v3/TournamentEndPoints)
 TOURNAMENT | [V3](https://github.com/msx752/RiotGamesApi/tree/master/RiotGamesApi/Libraries/Lol/v3/TournamentEndPoints)
-CHAMPION(Test for the Feature) | [V3.1](https://github.com/msx752/RiotGamesApi/tree/master/RiotGamesApi/Libraries/Lol/v3/v31/NonStaticEndPoints/Champion)
+CHAMPION (*Test for the Feature*) | [V3.1](https://github.com/msx752/RiotGamesApi/tree/master/RiotGamesApi/Libraries/Lol/v3/v31/NonStaticEndPoints/Champion)
 
 GameConstants([ref.](https://developer.riotgames.com/game-constants.html)) |
 --- |
