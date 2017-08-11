@@ -65,7 +65,7 @@ namespace RiotGamesApi.AspNetCore
         public static IApplicationBuilder UseRiotGamesApi(this IApplicationBuilder app)
         {
             IServiceProvider sProvider = app.ApplicationServices;
-            sProvider.UseRiotGamesApiServiceProvider();
+            sProvider.UseRiotGamesApi();
             return app;
         }
     }

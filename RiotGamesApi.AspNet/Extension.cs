@@ -70,7 +70,7 @@ namespace RiotGamesApi.AspNet
             IServiceProvider sProvider = services.BuildServiceProvider();
             var resolver = new DefaultDependencyResolver(sProvider);
             DependencyResolver.SetResolver(resolver);
-            sProvider.UseRiotGamesApiServiceProvider();
+            sProvider.UseRiotGamesApi();
             return app;
         }
     }

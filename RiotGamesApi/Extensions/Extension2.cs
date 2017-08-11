@@ -355,7 +355,7 @@ namespace RiotGamesApi
         /// </param>
         /// <returns>
         /// </returns>
-        public static void UseRiotGamesApiServiceProvider(this IServiceProvider sProvider)
+        public static void UseRiotGamesApi(this IServiceProvider sProvider)
         {
             ApiSettings.ServiceProvider = sProvider;
         }
