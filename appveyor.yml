@@ -81,9 +81,9 @@ build_script:
     dotnet clean -c Release;
     nuget restore;
     dotnet msbuild /p:Configuration=Release /p:Version=$newBuildNumber;
-    nuget pack $($env:APPVEYOR_PROJECT_NAME) -version $newBuildNumber;
-    nuget pack $($env:APPVEYOR_PROJECT_NAME).AspNet -version $newBuildNumber;
-    nuget pack $($env:APPVEYOR_PROJECT_NAME).AspNetCore -version $newBuildNumber;
+    nuget pack $($env:APPVEYOR_PROJECT_NAME).nuspec -version $newBuildNumber;
+    nuget pack $($env:APPVEYOR_PROJECT_NAME).AspNet.nuspec -version $newBuildNumber;
+    nuget pack $($env:APPVEYOR_PROJECT_NAME).AspNetCore.nuspec -version $newBuildNumber;
 
     Push-AppveyorArtifact "$($env:APPVEYOR_BUILD_FOLDER)\$($env:APPVEYOR_PROJECT_NAME).$SVersion.nupkg" -FileName "$($env:APPVEYOR_PROJECT_NAME).$SVersion.nupkg" -DeploymentName "$($env:APPVEYOR_PROJECT_NAME)";
     Push-AppveyorArtifact "$($env:APPVEYOR_BUILD_FOLDER)\$($env:APPVEYOR_PROJECT_NAME).AspNet.$SVersion.nupkg" -FileName "$($env:APPVEYOR_PROJECT_NAME).AspNet.$SVersion.nupkg" -DeploymentName "$($env:APPVEYOR_PROJECT_NAME).AspNet";
