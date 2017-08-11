@@ -16,7 +16,7 @@ A Portable RiotGames v3 and upper API Wrapper for C#
 ## .Net 4.6.2 Middleware
 - https://github.com/msx752/RiotGamesApi/tree/master/RiotGamesApi.AspNet/
 
-## API Table
+## API Library Table
 ApiName | Version
 --- | ---
 CHAMPION-MASTERY | [V3](https://github.com/msx752/RiotGamesApi/tree/master/RiotGamesApi/Libraries/Lol/v3/NonStaticEndPoints/ChampionMastery)
