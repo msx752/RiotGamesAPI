@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
 using RiotGamesApi.Enums;
 using RiotGamesApi.Interfaces;
+using RiotGamesApi.Libraries.Lol.Enums;
 
 namespace RiotGamesApi.Cache
 {

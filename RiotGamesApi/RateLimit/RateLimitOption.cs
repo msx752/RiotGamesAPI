@@ -1,5 +1,6 @@
 ﻿using System.Collections.Concurrent;
 using RiotGamesApi.Enums;
+using RiotGamesApi.Libraries.Lol.Enums;
 using RiotGamesApi.RateLimit.Property;
 
 namespace RiotGamesApi.RateLimit

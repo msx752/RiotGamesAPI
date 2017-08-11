@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using RiotGamesApi.Enums;
 using RiotGamesApi.Interfaces;
+using RiotGamesApi.Libraries.Lol.Enums;
+using RiotGamesApi.Libraries.Lol.Models;
 using RiotGamesApi.Models;
 
 namespace RiotGamesApi
@@ -29,7 +31,7 @@ namespace RiotGamesApi
                 try
                 {
                     ((LolApiRequest<T>)lar).ParametersWithValue = parameters.ToList();
-                    Method selected = null;
+                    LolApiMethod selected = null;
                     foreach (var u in ((LolApiRequest<T>)lar).SelectedSubUrlCache)
                     {
                         if (u.RiotGamesApiPaths.Length != parameters.Length)
@@ -86,7 +88,7 @@ namespace RiotGamesApi
             try
             {
                 lar.Platform = platform;
-                Method selected;
+                LolApiMethod selected;
                 if (lar.SelectedApiIndex != -1)
                 {
                     selected = lar.ApiList.ApiMethods[lar.SelectedApiIndex];

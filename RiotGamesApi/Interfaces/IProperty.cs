@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using RiotGamesApi.Enums;
+using RiotGamesApi.Libraries.Lol.Enums;
+using RiotGamesApi.Libraries.Lol.Models;
 using RiotGamesApi.Models;
 
 namespace RiotGamesApi.Interfaces

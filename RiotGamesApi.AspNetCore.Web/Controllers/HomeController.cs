@@ -5,18 +5,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using RiotGamesApi.Enums;
-using RiotGamesApi.Library.Enums;
-using RiotGamesApi.Library.v3.NonStaticEndPoints.ChampionMastery;
-using RiotGamesApi.Library.v3.StaticEndPoints.Champions;
+using RiotGamesApi.Libraries.Enums;
+using RiotGamesApi.Libraries.Lol.Enums;
+using RiotGamesApi.Libraries.Lol.v3.NonStaticEndPoints.ChampionMastery;
+using RiotGamesApi.Libraries.Lol.v3.StaticEndPoints.Champions;
 using RiotGamesApi.Models;
 
 namespace RiotGamesApi.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public Api LolApi { get; set; }
+        public LolApi LolApi { get; set; }
 
-        public HomeController(Api _api)
+        public HomeController(LolApi _api)
         {
             LolApi = _api;
         }

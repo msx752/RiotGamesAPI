@@ -1,9 +1,12 @@
 ﻿using System.Collections.Generic;
 using RiotGamesApi.Enums;
+using RiotGamesApi.Interfaces;
+using RiotGamesApi.Libraries.Lol.Enums;
+using RiotGamesApi.Libraries.Lol.Models;
 
 namespace RiotGamesApi.Models
 {
-    public class RiotGamesApi
+    public class RiotGamesApi : IRiotGamesApi
     {
         public RiotGamesApi(string baseUrl)
         {

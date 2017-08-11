@@ -4,6 +4,7 @@ using System.Text;
 using RiotGamesApi.Interfaces;
 using RiotGamesApi.RateLimit;
 using Microsoft.Extensions.Caching.Memory;
+using RiotGamesApi.Libraries.Lol.Models;
 
 namespace RiotGamesApi
 {
@@ -36,11 +37,11 @@ namespace RiotGamesApi
         /// <summary>
         /// RiotGamesApi Rate-Limiter 
         /// </summary>
-        public static ApiRate ApiRate
+        public static LolApiRateLimit ApiRate
         {
             get
             {
-                return GetService<ApiRate>();
+                return GetService<LolApiRateLimit>();
             }
         }
 

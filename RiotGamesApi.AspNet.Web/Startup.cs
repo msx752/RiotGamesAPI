@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Owin;
 using Owin;
 using RiotGamesApi.Enums;
+using RiotGamesApi.Libraries.Lol.Enums;
 
 [assembly: OwinStartupAttribute(typeof(RiotGamesApi.AspNet.Web.Startup))]
 

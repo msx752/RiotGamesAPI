@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using RiotGamesApi.Enums;
-using RiotGamesApi.Library.Enums.GameConstants;
-using RiotGamesApi.Library.v3.NonStaticEndPoints.League;
+using RiotGamesApi.Libraries.Lol.Enums.GameConstants;
+using RiotGamesApi.Libraries.Lol.Enums;
+using RiotGamesApi.Libraries.Lol.v3.NonStaticEndPoints.League;
 using RiotGamesApi.Models;
 using RiotGamesApi.Tests.Others;
 using Xunit;

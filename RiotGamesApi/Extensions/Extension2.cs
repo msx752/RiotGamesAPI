@@ -4,29 +4,31 @@ using Microsoft.Extensions.DependencyInjection;
 using RiotGamesApi.Cache;
 using RiotGamesApi.Enums;
 using RiotGamesApi.Interfaces;
-using RiotGamesApi.Library.Enums;
-using RiotGamesApi.Library.v3.NonStaticEndPoints.ChampionMastery;
-using RiotGamesApi.Library.v3.NonStaticEndPoints.League;
-using RiotGamesApi.Library.v3.NonStaticEndPoints.Mastery;
-using RiotGamesApi.Library.v3.NonStaticEndPoints.Match;
-using RiotGamesApi.Library.v3.NonStaticEndPoints.Rune;
-using RiotGamesApi.Library.v3.NonStaticEndPoints.Spectator;
-using RiotGamesApi.Library.v3.NonStaticEndPoints.Summoner;
-using RiotGamesApi.Library.v3.StaticEndPoints.Champions;
-using RiotGamesApi.Library.v3.StaticEndPoints.Items;
-using RiotGamesApi.Library.v3.StaticEndPoints.LanguageStrings;
-using RiotGamesApi.Library.v3.StaticEndPoints.Maps;
-using RiotGamesApi.Library.v3.StaticEndPoints.Masteries;
-using RiotGamesApi.Library.v3.StaticEndPoints.Profile;
-using RiotGamesApi.Library.v3.StaticEndPoints.Realms;
-using RiotGamesApi.Library.v3.StaticEndPoints.Runes;
-using RiotGamesApi.Library.v3.StaticEndPoints.SummonerSpell;
-using RiotGamesApi.Library.v3.StatusEndPoints;
-using RiotGamesApi.Library.v3.TournamentEndPoints;
+using RiotGamesApi.Libraries.Enums;
+using RiotGamesApi.Libraries.Lol.Enums;
+using RiotGamesApi.Libraries.Lol.Models;
+using RiotGamesApi.Libraries.Lol.v3.NonStaticEndPoints.ChampionMastery;
+using RiotGamesApi.Libraries.Lol.v3.NonStaticEndPoints.League;
+using RiotGamesApi.Libraries.Lol.v3.NonStaticEndPoints.Mastery;
+using RiotGamesApi.Libraries.Lol.v3.NonStaticEndPoints.Match;
+using RiotGamesApi.Libraries.Lol.v3.NonStaticEndPoints.Rune;
+using RiotGamesApi.Libraries.Lol.v3.NonStaticEndPoints.Spectator;
+using RiotGamesApi.Libraries.Lol.v3.NonStaticEndPoints.Summoner;
+using RiotGamesApi.Libraries.Lol.v3.StaticEndPoints.Champions;
+using RiotGamesApi.Libraries.Lol.v3.StaticEndPoints.Items;
+using RiotGamesApi.Libraries.Lol.v3.StaticEndPoints.LanguageStrings;
+using RiotGamesApi.Libraries.Lol.v3.StaticEndPoints.Maps;
+using RiotGamesApi.Libraries.Lol.v3.StaticEndPoints.Masteries;
+using RiotGamesApi.Libraries.Lol.v3.StaticEndPoints.Profile;
+using RiotGamesApi.Libraries.Lol.v3.StaticEndPoints.Realms;
+using RiotGamesApi.Libraries.Lol.v3.StaticEndPoints.Runes;
+using RiotGamesApi.Libraries.Lol.v3.StaticEndPoints.SummonerSpell;
+using RiotGamesApi.Libraries.Lol.v3.StatusEndPoints;
+using RiotGamesApi.Libraries.Lol.v3.TournamentEndPoints;
 using RiotGamesApi.RateLimit;
 using RiotGamesApi.RateLimit.Builder;
-using MasteryDto = RiotGamesApi.Library.v3.StaticEndPoints.Masteries.MasteryDto;
-using RuneDto = RiotGamesApi.Library.v3.StaticEndPoints.Runes.RuneDto;
+using MasteryDto = RiotGamesApi.Libraries.Lol.v3.StaticEndPoints.Masteries.MasteryDto;
+using RuneDto = RiotGamesApi.Libraries.Lol.v3.StaticEndPoints.Runes.RuneDto;
 
 namespace RiotGamesApi
 {
@@ -76,8 +78,8 @@ namespace RiotGamesApi
             services.AddSingleton<IApiOption>(riotGamesApiOption);
             services.AddMemoryCache();
             services.AddSingleton<IApiCache>(new ApiCache());
-            services.AddSingleton<Api>(new Api());
-            services.AddSingleton<ApiRate>(new ApiRate());
+            services.AddSingleton<LolApi>(new LolApi());
+            services.AddSingleton<LolApiRateLimit>(new LolApiRateLimit());
         }
 
         private static RateLimitData RateLimitData()
@@ -214,15 +216,15 @@ namespace RiotGamesApi
                         .GetMethod(LolApiMethodName.Summoners, typeof(SummonerDto), LolApiPath.OnlySummonerId);
 
                     apis.AddApi(LolApiName.Platform, 3.0)
-                        .GetMethod(LolApiMethodName.Champions, typeof(Library.v3.NonStaticEndPoints.Champion.ChampionListDto))
-                        .GetMethod(LolApiMethodName.Champions, typeof(Library.v3.NonStaticEndPoints.Champion.ChampionDto), LolApiPath.OnlyId)
+                        .GetMethod(LolApiMethodName.Champions, typeof(Libraries.Lol.v3.NonStaticEndPoints.Champion.ChampionListDto))
+                        .GetMethod(LolApiMethodName.Champions, typeof(Libraries.Lol.v3.NonStaticEndPoints.Champion.ChampionDto), LolApiPath.OnlyId)
                         .GetMethod(LolApiMethodName.Masteries, typeof(MasteryPagesDto), LolApiPath.BySummoner)
                         .GetMethod(LolApiMethodName.Runes, typeof(RunePagesDto), LolApiPath.BySummoner);
 
                     // "version 3.1 testing (NOT WORKS only for displaying)
                     apis.AddApi(LolApiName.Platform, 3.1)
-                        .GetMethod(LolApiMethodName.Champions, typeof(Library.v31.NonStaticEndPoints.Champion.ChampionListDto))
-                        .GetMethod(LolApiMethodName.Champions, typeof(Library.v31.NonStaticEndPoints.Champion.ChampionDto), LolApiPath.OnlyId);
+                        .GetMethod(LolApiMethodName.Champions, typeof(Libraries.Lol.v31.NonStaticEndPoints.Champion.ChampionListDto))
+                        .GetMethod(LolApiMethodName.Champions, typeof(Libraries.Lol.v31.NonStaticEndPoints.Champion.ChampionDto), LolApiPath.OnlyId);
 
                     apis.AddApi(LolApiName.League, 3.0)
                         .GetMethod(LolApiMethodName.ChallengerLeagues, typeof(LeagueListDTO), LolApiPath.ByQueue)
@@ -258,7 +260,7 @@ namespace RiotGamesApi
                         .PostMethod(LolApiMethodName.Tournaments, typeof(int), typeof(TournamentRegistrationParameters), true);
 
                     apis.AddApi(LolApiName.Tournament, 3.0)
-                        .PostMethod(LolApiMethodName.Codes, typeof(List<string>), typeof(RiotGamesApi.Library.v3.TournamentEndPoints.TournamentCodeParameters), true)
+                        .PostMethod(LolApiMethodName.Codes, typeof(List<string>), typeof(RiotGamesApi.Libraries.Lol.v3.TournamentEndPoints.TournamentCodeParameters), true)
                         .AddQueryParameter(new Dictionary<string, Type>()
                         {
                             {"count", typeof(int)},
@@ -266,9 +268,9 @@ namespace RiotGamesApi
                         })
                         .PutMethod(LolApiMethodName.Codes, typeof(TournamentCodeUpdateParameters), false, LolApiPath.OnlyTournamentCode)
                         .GetMethod(LolApiMethodName.Codes, typeof(TournamentCodeDTO), LolApiPath.OnlyTournamentCode)
-                        .GetMethod(LolApiMethodName.LobbyEvents, typeof(RiotGamesApi.Library.v3.TournamentEndPoints.LobbyEventDTOWrapper), LolApiPath.ByCode)
-                        .PostMethod(LolApiMethodName.Providers, typeof(int), typeof(RiotGamesApi.Library.v3.TournamentEndPoints.ProviderRegistrationParameters), true)
-                        .PostMethod(LolApiMethodName.Tournaments, typeof(int), typeof(RiotGamesApi.Library.v3.TournamentEndPoints.TournamentRegistrationParameters), true);
+                        .GetMethod(LolApiMethodName.LobbyEvents, typeof(RiotGamesApi.Libraries.Lol.v3.TournamentEndPoints.LobbyEventDTOWrapper), LolApiPath.ByCode)
+                        .PostMethod(LolApiMethodName.Providers, typeof(int), typeof(RiotGamesApi.Libraries.Lol.v3.TournamentEndPoints.ProviderRegistrationParameters), true)
+                        .PostMethod(LolApiMethodName.Tournaments, typeof(int), typeof(RiotGamesApi.Libraries.Lol.v3.TournamentEndPoints.TournamentRegistrationParameters), true);
 
                     return apis;
                 });

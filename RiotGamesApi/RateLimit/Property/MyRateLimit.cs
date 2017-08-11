@@ -2,6 +2,7 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using RiotGamesApi.Enums;
+using RiotGamesApi.Libraries.Lol.Enums;
 
 namespace RiotGamesApi.RateLimit.Property
 {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using RiotGamesApi.Cache;
 using RiotGamesApi.Enums;
+using RiotGamesApi.Libraries.Lol.Enums;
 using RiotGamesApi.RateLimit;
 
 namespace RiotGamesApi.Interfaces

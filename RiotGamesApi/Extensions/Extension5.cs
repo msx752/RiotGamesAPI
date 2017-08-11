@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Reflection;
 using RiotGamesApi.Enums;
-using RiotGamesApi.Library.Enums;
+using RiotGamesApi.Libraries.Enums;
+using RiotGamesApi.Libraries.Lol.Enums;
 using RiotGamesApi.Models;
 
 namespace RiotGamesApi
@@ -201,7 +202,7 @@ namespace RiotGamesApi
             string @MainClass = $"\r\n// ReSharper disable InconsistentNaming\r\n" +
                                 $"//AUTO GENERATED CLASS DO NOT MODIFY\r\n ";
 
-            string @apiClass = $"public class {nameof(Api)}\r\n{{\r\n" +
+            string @apiClass = $"public class {nameof(LolApi)}\r\n{{\r\n" +
                                $"{@apiClassProperties}" +
                                $"\r\n}}\r\n";
             MainClass += @apiClass;
@@ -238,8 +239,8 @@ namespace RiotGamesApi
                                  $"using System;\r\n" +
                                  $"using System.Collections.Generic;\r\n" +
                                  $"using System.Threading.Tasks;\r\n" +
-                                 $"using {Namespace}.Library.Enums;\r\n" +
-                                 $"using {Namespace}.Library.Enums.GameConstants; ";
+                                 $"using {Namespace}.Libraries.Enums;\r\n" +
+                                 $"using {Namespace}.Libraries.Lol.Enums.GameConstants; ";
 
             return @references;
         }

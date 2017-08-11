@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using RiotGamesApi.Enums;
+using RiotGamesApi.Interfaces;
+using RiotGamesApi.Libraries.Lol.Enums;
 using RiotGamesApi.RateLimit.Property;
 
 namespace RiotGamesApi.RateLimit.Builder
 {
-    public class RateLimitBuilder
+    public class RateLimitBuilder : IRateLimitBuilder
     {
         public RateLimitBuilder()
         {

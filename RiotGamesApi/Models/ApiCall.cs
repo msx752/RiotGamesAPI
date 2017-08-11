@@ -1,6 +1,8 @@
 using System.Linq;
 using RiotGamesApi.Enums;
 using RiotGamesApi.Interfaces;
+using RiotGamesApi.Libraries.Lol.Enums;
+using RiotGamesApi.Libraries.Lol.Models;
 
 namespace RiotGamesApi.Models
 {

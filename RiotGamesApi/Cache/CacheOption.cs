@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using RiotGamesApi.Enums;
+using RiotGamesApi.Libraries.Lol.Enums;
 
 namespace RiotGamesApi.Cache
 {

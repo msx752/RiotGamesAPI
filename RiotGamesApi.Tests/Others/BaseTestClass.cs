@@ -2,8 +2,9 @@
 using System.IO;
 using Microsoft.Extensions.Configuration;
 using RiotGamesApi.AspNetCore;
-using RiotGamesApi.Library;
-using RiotGamesApi.Library.Enums;
+
+using RiotGamesApi.Libraries.Enums;
+using RiotGamesApi.Libraries.Lol.Models;
 using RiotGamesApi.RateLimit;
 
 namespace RiotGamesApi.Tests.Others
@@ -38,14 +39,14 @@ namespace RiotGamesApi.Tests.Others
 
         public long MasteryId { get; }
 
-        public Api LolApi
+        public LolApi LolApi
         {
-            get { return (Api)ApiSettings.ServiceProvider.GetService(typeof(Api)); }
+            get { return (LolApi)ApiSettings.ServiceProvider.GetService(typeof(LolApi)); }
         }
 
-        public ApiRate ApiRateLimiting
+        public LolApiRateLimit ApiRateLimiting
         {
-            get { return (ApiRate)ApiSettings.ServiceProvider.GetService(typeof(ApiRate)); }
+            get { return (LolApiRateLimit)ApiSettings.ServiceProvider.GetService(typeof(LolApiRateLimit)); }
         }
 
         public BaseTestClass()

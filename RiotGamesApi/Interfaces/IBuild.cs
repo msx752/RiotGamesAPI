@@ -1,4 +1,4 @@
-using RiotGamesApi.Library.Enums;
+using RiotGamesApi.Libraries.Enums;
 
 namespace RiotGamesApi.Interfaces
 {

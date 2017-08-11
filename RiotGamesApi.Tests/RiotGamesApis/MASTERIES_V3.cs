@@ -1,5 +1,6 @@
 ﻿using RiotGamesApi.Enums;
-using RiotGamesApi.Library.v3.NonStaticEndPoints.Mastery;
+using RiotGamesApi.Libraries.Lol.Enums;
+using RiotGamesApi.Libraries.Lol.v3.NonStaticEndPoints.Mastery;
 using RiotGamesApi.Models;
 using RiotGamesApi.Tests.Others;
 using Xunit;

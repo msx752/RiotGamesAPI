@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using RiotGamesApi.Enums;
-using RiotGamesApi.Library.Enums;
-using RiotGamesApi.Library.v3.TournamentEndPoints;
+using RiotGamesApi.Libraries.Enums;
+using RiotGamesApi.Libraries.Lol.Enums;
+using RiotGamesApi.Libraries.Lol.v3.TournamentEndPoints;
 using RiotGamesApi.Models;
 using RiotGamesApi.Tests.Others;
 using Xunit;

@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using RiotGamesApi.AspNetCore;
 using RiotGamesApi.Enums;
+using RiotGamesApi.Libraries.Lol.Enums;
 
 /*
     using RiotGamesApi.AspNetCore;

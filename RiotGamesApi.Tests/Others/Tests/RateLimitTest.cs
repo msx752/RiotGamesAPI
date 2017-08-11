@@ -2,7 +2,8 @@
 using System.Linq;
 using System.Threading.Tasks;
 using RiotGamesApi.Enums;
-using RiotGamesApi.Library.Enums;
+using RiotGamesApi.Libraries.Enums;
+using RiotGamesApi.Libraries.Lol.Enums;
 using RiotGamesApi.RateLimit.Property;
 using Xunit;
 

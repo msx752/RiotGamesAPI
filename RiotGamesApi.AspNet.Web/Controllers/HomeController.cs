@@ -5,20 +5,21 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using RiotGamesApi.Enums;
-using RiotGamesApi.Library.Enums;
-using RiotGamesApi.Library.v3.NonStaticEndPoints.ChampionMastery;
-using RiotGamesApi.Library.v3.StaticEndPoints.Champions;
+using RiotGamesApi.Libraries.Enums;
+using RiotGamesApi.Libraries.Lol.Enums;
+using RiotGamesApi.Libraries.Lol.v3.NonStaticEndPoints.ChampionMastery;
+using RiotGamesApi.Libraries.Lol.v3.StaticEndPoints.Champions;
 using RiotGamesApi.Models;
 
 namespace RiotGamesApi.AspNet.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private Api LolApi { get; set; }
+        private LolApi LolApi { get; set; }
 
         public HomeController()
         {
-            LolApi = ApiSettings.GetService<Api>();
+            LolApi = ApiSettings.GetService<LolApi>();
         }
 
         public async Task<ActionResult> Index()

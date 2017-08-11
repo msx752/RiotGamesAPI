@@ -1,5 +1,6 @@
 ﻿using RiotGamesApi.Enums;
-using RiotGamesApi.Library.v3.NonStaticEndPoints.Spectator;
+using RiotGamesApi.Libraries.Lol.Enums;
+using RiotGamesApi.Libraries.Lol.v3.NonStaticEndPoints.Spectator;
 using RiotGamesApi.Models;
 using RiotGamesApi.Tests.Others;
 using Xunit;

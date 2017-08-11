@@ -3,6 +3,7 @@ using System.Linq;
 using System.Reflection;
 using RiotGamesApi.Attributes;
 using RiotGamesApi.Enums;
+using RiotGamesApi.Libraries.Lol.Enums;
 using RiotGamesApi.Models;
 
 namespace RiotGamesApi

@@ -1,4 +1,5 @@
 ﻿using RiotGamesApi.Enums;
+using RiotGamesApi.Libraries.Lol.Enums;
 
 namespace RiotGamesApi.Models
 {

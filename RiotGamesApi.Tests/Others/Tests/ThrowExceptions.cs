@@ -1,7 +1,8 @@
 ﻿using Newtonsoft.Json;
 using RiotGamesApi.Enums;
-using RiotGamesApi.Library.v3.NonStaticEndPoints.Champion;
-using RiotGamesApi.Library.v3.NonStaticEndPoints.Summoner;
+using RiotGamesApi.Libraries.Lol.Enums;
+using RiotGamesApi.Libraries.Lol.v3.NonStaticEndPoints.Champion;
+using RiotGamesApi.Libraries.Lol.v3.NonStaticEndPoints.Summoner;
 using RiotGamesApi.Models;
 using Xunit;
 

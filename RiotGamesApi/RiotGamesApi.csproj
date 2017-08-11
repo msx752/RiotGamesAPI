@@ -16,7 +16,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Library\v3\TournamentStubEndPoints\" />
+    <Folder Include="Libraries\Lol\v3\TournamentStubEndPoints\" />
   </ItemGroup>
 
   <ItemGroup>
