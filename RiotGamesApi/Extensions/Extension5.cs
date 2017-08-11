@@ -184,7 +184,7 @@ namespace RiotGamesApi
                                           $".AddParameter({@RiotGamesApiParameters})\r\n" +
                                           ".Build(platform)\r\n" +
                                           @useCacheMethod +
-                                          $".{urlSub.RequestType}Async({@optionalParameters}).ConfigureAwait(false);";
+                                          $".{urlSub.RequestType}Async({@optionalParameters});";
                         @methodAsync += @apiCall;
                         @methodAsync += "\r\nreturn rit;\r\n}";
                         class2 += @methodAsync;

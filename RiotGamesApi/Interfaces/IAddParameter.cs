@@ -8,5 +8,8 @@ namespace RiotGamesApi.Interfaces
     /// <typeparam name="T">
     /// response type of value 
     /// </typeparam>
-    public interface IAddParameter<T> where T : new() { IBuild<T> AddParameter(params ApiParameter[] parameters); }
+    public interface IAddParameter<T> where T : new()
+    {
+        //IBuild<T> AddParameter(params ApiParameter[] parameters);
+    }
 }
