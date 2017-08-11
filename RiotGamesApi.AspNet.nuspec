@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+    <metadata>
+        <id>RiotGamesApi.AspNet</id>
+        <version>1.0.0.0</version>
+        <title>RiotGamesApi AspNet Wrapper</title>
+        <authors>Mustafa Salih ASLIM</authors>
+        <owners>Mustafa Salih ASLIM</owners>
+        <licenseUrl>https://github.com/msx752/RiotGamesApi.AspNet/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://riotgamesapi.readme.io</projectUrl>
+        <iconUrl>https://github.com/msx752/RiotGamesApi.AspNetCore/blob/master/wfc.png?raw=true</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>C# AspNet LeagueOfLegends RiotGames v3 and upper API wapper.</description>
+        <summary>RiotGames LeagueOfLegends API wrapper v3 and upper AspNet</summary>
+        <releaseNotes />
+        <copyright>Copyright 2017</copyright>
+        <language />
+        <tags>RiotGames LeagueOfLegends v3 API with C# AspNet 4.7 project</tags>
+        <dependencies>
+            <group targetFramework=".NETFramework4.6.2">
+                <dependency id="Microsoft.AspNet.Mvc" version="5.2.3" />
+                <dependency id="Microsoft.Owin" version="3.1.0" />
+                <dependency id="NETStandard.Library" version="1.6.1" />
+                <dependency id="DeepCloner" version="0.10.1" />
+                <dependency id="Microsoft.Extensions.DependencyInjection" version="1.1.1" />
+                <dependency id="Microsoft.Extensions.Caching.Memory" version="1.1.2" />
+                <dependency id="Newtonsoft.Json" version="10.0.3" />
+                <dependency id="RiotGamesApi" version="1.0.0" />
+            </group>
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="RiotGamesApi.AspNet\bin\Release\RiotGamesApi.AspNet.dll" target="lib\net462\RiotGamesApi.AspNet.dll" />
+        <file src="RiotGamesApi.AspNet\bin\Release\RiotGamesApi.AspNet.xml" target="lib\net462\RiotGamesApi.AspNet.xml" />
+    </files>
+</package>

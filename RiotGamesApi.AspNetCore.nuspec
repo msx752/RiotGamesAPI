@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+    <metadata>
+         <id>RiotGamesApi.AspNetCore</id>
+        <version>1.0.0.0</version>
+         <title>RiotGamesApi AspNetCore Wrapper</title>
+        <authors>Mustafa Salih ASLIM</authors>
+        <owners>Mustafa Salih ASLIM</owners>
+        <licenseUrl>https://github.com/msx752/RiotGamesApi.AspNetCore/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://riotgamesapi.readme.io</projectUrl>
+        <iconUrl>https://github.com/msx752/RiotGamesApi.AspNetCore/blob/master/wfc.png?raw=true</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>C# AspNetCore LeagueOfLegends RiotGames v3 and upper API wapper.</description>
+        <summary>RiotGames LeagueOfLegends API wrapper v3 and upper AspNetCore</summary>
+        <releaseNotes></releaseNotes>
+        <copyright>Copyright 2017</copyright>
+        <language />
+        <tags>RiotGames LeagueOfLegends v3 API with C# AspNetCore 1.1 project</tags>
+        <dependencies>
+            <group targetFramework=".NETCoreApp1.1">               
+                <dependency id="Microsoft.NETCore.App" version="1.1.2" />
+                <dependency id="Microsoft.AspNetCore.Http.Abstractions" version="1.1.2" />
+                <dependency id="DeepCloner" version="0.10.1" />
+                <dependency id="Microsoft.Extensions.DependencyInjection" version="1.1.1" /> 
+                <dependency id="Microsoft.Extensions.Caching.Memory" version="1.1.2"  />
+                <dependency id="Newtonsoft.Json" version="10.0.3"/>
+                <dependency id="RiotGamesApi" version="1.0.0" />
+            </group>
+        </dependencies>
+    </metadata>
+    <files>
+    <file src="RiotGamesApi.AspNetCore\bin\Release\netcoreapp1.1\RiotGamesApi.AspNetCore.dll" target="lib\netcoreapp11\RiotGamesApi.AspNetCore.dll" />
+    <file src="RiotGamesApi.AspNetCore\bin\Release\netcoreapp1.1\RiotGamesApi.AspNetCore.xml" target="lib\netcoreapp11\RiotGamesApi.AspNetCore.xml" />
+    </files>
+</package>
