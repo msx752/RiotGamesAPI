@@ -1,7 +1,6 @@
 ﻿using System;
 using RiotGamesApi.Library.Enums;
 
-// ReSharper disable once CheckNamespace
 namespace RiotGamesApi.Library
 {
     public static class Extensions

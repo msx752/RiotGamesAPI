@@ -264,16 +264,16 @@ namespace RiotGamesApi
                         .GetMethod(LolApiMethodName.Masteries, typeof(MasteryPagesDto), LolApiPath.BySummoner)
                         .GetMethod(LolApiMethodName.Runes, typeof(RunePagesDto), LolApiPath.BySummoner);
 
+                    // "version 3.1 testing (NOT WORKS only for displaying)
+                    apis.AddApi(LolApiName.Platform, 3.1)
+                        .GetMethod(LolApiMethodName.Champions, typeof(Library.v31.NonStaticEndPoints.Champion.ChampionListDto))
+                        .GetMethod(LolApiMethodName.Champions, typeof(Library.v31.NonStaticEndPoints.Champion.ChampionDto), LolApiPath.OnlyId);
+
                     apis.AddApi(LolApiName.League, 3.0)
                         .GetMethod(LolApiMethodName.ChallengerLeagues, typeof(LeagueListDTO), LolApiPath.ByQueue)
                         .GetMethod(LolApiMethodName.Leagues, typeof(List<LeagueListDTO>), LolApiPath.BySummoner)
                         .GetMethod(LolApiMethodName.MasterLeagues, typeof(LeagueListDTO), LolApiPath.ByQueue)
                         .GetMethod(LolApiMethodName.Positions, typeof(List<LeaguePositionDTO>), LolApiPath.BySummoner);
-
-                    //// "version 3.1 testing (NOT WORKS only for displaying)
-                    //apis.AddApi(LolApiName.League, 3.1)
-                    //    .GetMethod(LolApiMethodName.ChallengerLeagues, typeof(RiotApi.v31.Empty), LolApiPath.ByQueue);
-                    ////
 
                     apis.AddApi(LolApiName.Match, 3.0)
                         .GetMethod(LolApiMethodName.Matches, typeof(MatchDto), LolApiPath.OnlyMatchId)

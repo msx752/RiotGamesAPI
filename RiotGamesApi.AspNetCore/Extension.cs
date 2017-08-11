@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Builder;
 
 namespace RiotGamesApi.AspNetCore
 {
-    public static class Extension2
+    public static class Extension
     {
         /// <summary>
         /// necessary for using RiotGamesApi.AspNetCore wrapper 

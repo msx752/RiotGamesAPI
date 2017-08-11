@@ -433,7 +433,7 @@ namespace RiotGamesApi.Models
         private async Task<HttpResponseMessage> CreateHttpRequestMessage(HttpMethod method, StringContent data)
         {
             var request = new HttpRequestMessage(HttpMethod.Get, RequestUrl);
-            request.Headers.Add("UserAgent", "RiotGamesApi.AspNetCore");
+            request.Headers.Add("UserAgent", "RiotGamesApi");
             request.Headers.Add("Accept-Language", "tr-TR,tr;q=0.8,en-US;q=0.6,en;q=0.4,ru;q=0.2");
             request.Headers.Add("Accept-Charset", "ISO-8859-1,UTF-8");
 
