@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
     <metadata>
         <id>RiotGamesApi</id>
-        <version>1.0.0</version>
+        <version>1.0.0.1</version>
         <title>A Portable RiotGames v3 and upper API Wrapper for C#</title>
         <authors>Mustafa Salih ASLIM</authors>
         <owners>Mustafa Salih ASLIM</owners>
