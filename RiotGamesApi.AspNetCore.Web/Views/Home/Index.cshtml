@@ -1,8 +1,5 @@
-﻿@using System.Linq;
-@using RiotGamesApi.AspNetCore
-@using RiotGamesApi.AspNetCore.Interfaces
-@using RiotGamesApi.AspNetCore.RiotApi.NonStaticEndPoints.ChampionMastery
-@model RiotGamesApi.AspNetCore.Interfaces.IResult<List<RiotGamesApi.AspNetCore.RiotApi.NonStaticEndPoints.ChampionMastery.ChampionMasteryDto>>
+﻿@using RiotGamesApi.Library.v3.NonStaticEndPoints.ChampionMastery
+@model RiotGamesApi.Interfaces.IResult<List<RiotGamesApi.Library.v3.NonStaticEndPoints.ChampionMastery.ChampionMasteryDto>>
 @{
     ViewData["Title"] = "RiotGamesApi";
 }
@@ -12,7 +9,7 @@
         <p>
             <span>HasError: @Model.HasError</span>
             <br />
-            <span>Exception: @Model.Exception?.ToString()</span>
+            <span>Exception: @(Model.Exception?.ToString())</span>
             <br />
             @{
                 foreach (var champion in Model.Result)

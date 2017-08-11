@@ -35,7 +35,6 @@ namespace RiotGamesApi.Web.Controllers
             {
                 throw rit.Exception;
             }
-            var rit2 = LolApi.StaticApi.StaticDatav3.GetChampions(ServicePlatform.EUW1);
             return View(rit);
         }
 
