@@ -1,11 +1,10 @@
-﻿using System;
+﻿using RiotGamesApi.Enums;
+using RiotGamesApi.Models;
+using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
-using RiotGamesApi.Enums;
 using RiotGamesApi.Library.Enums;
 using RiotGamesApi.Library.Enums.GameConstants;
-using RiotGamesApi.Models;
 
 namespace RiotGamesApi
 {
@@ -636,6 +635,51 @@ namespace RiotGamesApi
                     .SelectApi<RiotGamesApi.Library.v3.NonStaticEndPoints.Rune.RunePagesDto>(LolApiName.Platform, 3)
                     .For(LolApiMethodName.Runes)
                     .AddParameter(new ApiParameter(LolApiPath.BySummoner, _BySummoner))
+                    .Build(platform)
+                    .GetAsync().ConfigureAwait(false);
+                return rit;
+            }
+        }
+
+        private Platform_v3_1 _Platformv31;
+        public Platform_v3_1 Platformv31 { get { return _Platformv31 ?? (_Platformv31 = new Platform_v3_1()); } }
+
+        //"Platform/v3.1
+        public class Platform_v3_1
+        {
+            public RiotGamesApi.Interfaces.IResult<RiotGamesApi.Library.v31.NonStaticEndPoints.Champion.ChampionListDto> GetChampions(ServicePlatform platform)
+            {
+                var t = GetChampionsAsync(platform);
+                t.Wait();
+                RiotGamesApi.Interfaces.IResult<RiotGamesApi.Library.v31.NonStaticEndPoints.Champion.ChampionListDto> rit = t.Result;
+                return rit;
+            }
+
+            public async Task<RiotGamesApi.Interfaces.IResult<RiotGamesApi.Library.v31.NonStaticEndPoints.Champion.ChampionListDto>> GetChampionsAsync(ServicePlatform platform)
+            {
+                RiotGamesApi.Interfaces.IResult<RiotGamesApi.Library.v31.NonStaticEndPoints.Champion.ChampionListDto> rit = await new ApiCall()
+                    .SelectApi<RiotGamesApi.Library.v31.NonStaticEndPoints.Champion.ChampionListDto>(LolApiName.Platform, 3.1)
+                    .For(LolApiMethodName.Champions)
+                    .AddParameter()
+                    .Build(platform)
+                    .GetAsync().ConfigureAwait(false);
+                return rit;
+            }
+
+            public RiotGamesApi.Interfaces.IResult<RiotGamesApi.Library.v31.NonStaticEndPoints.Champion.ChampionDto> GetChampionsOnlyId(ServicePlatform platform, Int64 _OnlyId)
+            {
+                var t = GetChampionsOnlyIdAsync(platform, _OnlyId);
+                t.Wait();
+                RiotGamesApi.Interfaces.IResult<RiotGamesApi.Library.v31.NonStaticEndPoints.Champion.ChampionDto> rit = t.Result;
+                return rit;
+            }
+
+            public async Task<RiotGamesApi.Interfaces.IResult<RiotGamesApi.Library.v31.NonStaticEndPoints.Champion.ChampionDto>> GetChampionsOnlyIdAsync(ServicePlatform platform, Int64 _OnlyId)
+            {
+                RiotGamesApi.Interfaces.IResult<RiotGamesApi.Library.v31.NonStaticEndPoints.Champion.ChampionDto> rit = await new ApiCall()
+                    .SelectApi<RiotGamesApi.Library.v31.NonStaticEndPoints.Champion.ChampionDto>(LolApiName.Platform, 3.1)
+                    .For(LolApiMethodName.Champions)
+                    .AddParameter(new ApiParameter(LolApiPath.OnlyId, _OnlyId))
                     .Build(platform)
                     .GetAsync().ConfigureAwait(false);
                 return rit;

@@ -235,11 +235,11 @@ namespace RiotGamesApi
         {
             string @references = $"using {Namespace}.Enums;\r\n" +
                                  $"using {Namespace}.Models;\r\n" +
-                                 $"using {Namespace}.RiotApi.Enums;\r\n" +
                                  $"using System;\r\n" +
                                  $"using System.Collections.Generic;\r\n" +
                                  $"using System.Threading.Tasks;\r\n" +
-                                 $"using {Namespace}.RiotApi.Enums.GameConstants; ";
+                                 $"using {Namespace}.Library.Enums;\r\n" +
+                                 $"using {Namespace}.Library.Enums.GameConstants; ";
 
             return @references;
         }
