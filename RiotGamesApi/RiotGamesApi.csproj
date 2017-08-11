@@ -5,11 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="AspNetCore\" />
     <Folder Include="Library\v3\TournamentStubEndPoints\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="DeepCloner" Version="0.10.1" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="1.1.2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="1.1.1" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
   </ItemGroup>
 
