@@ -1,0 +1,100 @@
+version: '{build}'
+pull_requests:
+  do_not_increment_build_number: true
+branches:
+  only:
+  - master
+skip_tags: true
+image: Visual Studio 2017
+clone_depth: 5
+assembly_info:
+  patch: true
+  file: '**\AssemblyInfo.*'
+  assembly_version: $(APPVEYOR_BUILD_VERSION)
+  assembly_file_version: $(APPVEYOR_BUILD_VERSION)
+  assembly_informational_version: $(APPVEYOR_BUILD_VERSION)
+install:
+- ps: >-
+    if($($env:APPVEYOR))
+
+    {
+
+    $firstCommit = $(git log --pretty=format:'%H' -n -1).Length;
+
+    $firstCommitHash = $(git log --pretty=format:'%H' -n -1)[$firstCommit-1];
+
+    Write-Host "First Commit Hash:" $firstCommitHash;
+
+    $firstCommitDate = (git show -s --format=%ci $firstCommitHash);
+
+    Write-Host "First Commit Date:" $firstCommitDate;
+
+    [datetime]$FCDateTime = $firstCommitDate;
+
+    #Write-Host $FCDateTime
+
+    $FCyear = $FCDateTime.ToString("y.").TrimEnd('.');
+
+    #Write-Host $FCyear
+
+    $timeZone0 = [TimeZoneInfo]::ConvertTimeBySystemTimeZoneId([DateTime]::UtcNow, "Turkey Standard Time");
+
+    $timeZone = $timeZone0;
+
+    Write-Host "Current System Time:" $timeZone;
+
+    [datetime]$DateTime = $timeZone;
+
+    $year = $DateTime.ToString("y.").TrimEnd('.');
+
+    $month = $DateTime.ToString("M.").TrimEnd('.');
+
+    $day = $DateTime.ToString("d.").TrimEnd('.');
+
+    $hourMinute = $DateTime.ToString(".HHmm").TrimStart('.').TrimStart('0');
+
+    $buildYear = (($year - $FCyear) + 1);
+
+    #$buildTime = $DateTime.ToString("M.d.hmm");
+
+    $newBuildNumber = "$buildYear.$month.$day.$hourMinute";
+
+    Write-Host "New Nuget Package Version:" $newBuildNumber
+
+    Update-AppveyorBuild -Version $newBuildNumber;
+
+    }
+
+    else
+
+    {
+        Write-Host "AppVeyor was not detected";
+    }
+build_script:
+- ps: >-
+    if($($env:APPVEYOR))
+    {
+
+    $SVersion = $($env:APPVEYOR_BUILD_VERSION);
+    Write-Host "$($env:APPVEYOR_PROJECT_NAME) Version:$SVersion";
+
+    dotnet clean -c Release;
+    nuget restore;
+    dotnet msbuild /p:Configuration=Release /p:Version=$newBuildNumber;
+    nuget pack -version $newBuildNumber;
+
+    Push-AppveyorArtifact "$($env:APPVEYOR_BUILD_FOLDER)\$($env:APPVEYOR_PROJECT_NAME).$SVersion.nupkg" -FileName "$($env:APPVEYOR_PROJECT_NAME).$SVersion.nupkg" -DeploymentName "$($env:APPVEYOR_PROJECT_NAME)";
+    Push-AppveyorArtifact "$($env:APPVEYOR_BUILD_FOLDER)\$($env:APPVEYOR_PROJECT_NAME).AspNet.$SVersion.nupkg" -FileName "$($env:APPVEYOR_PROJECT_NAME).AspNet.$SVersion.nupkg" -DeploymentName "$($env:APPVEYOR_PROJECT_NAME).AspNet";
+    Push-AppveyorArtifact "$($env:APPVEYOR_BUILD_FOLDER)\$($env:APPVEYOR_PROJECT_NAME).AspNetCore.$SVersion.nupkg" -FileName "$($env:APPVEYOR_PROJECT_NAME).AspNetCore.$SVersion.nupkg" -DeploymentName "$($env:APPVEYOR_PROJECT_NAME).AspNetCore";
+
+    }
+    else
+    {
+    Write-Host "AppVeyor was not detected";
+    }
+test: off
+hosts:
+  api.nuget.org: 93.184.221.200
+skip_commits:
+  files:
+    - '**/*.md'
