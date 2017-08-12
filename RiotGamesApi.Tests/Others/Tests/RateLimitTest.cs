@@ -109,5 +109,11 @@ namespace RiotGamesApi.Tests.Others.Tests
             var sn = ApiRateLimiting.FindRate(Service_Platform.ToString(), LolUrlType.NonStatic, LolApiName.Summoner, LolApiMethodName.Summoners);
             Assert.Equal(3, sn.Limits.Count(p => p.Counter == rateCountPerRegion));//there are app,service and method rate limits (or two app rate and one method rate :=) )
         }
+
+        [Fact]
+        public void ChampionsRateLimitControl()
+        {
+            var sn = LolApi.NonStaticApi.Platformv3.GetChampions(ServicePlatform.TR1);
+        }
     }
 }

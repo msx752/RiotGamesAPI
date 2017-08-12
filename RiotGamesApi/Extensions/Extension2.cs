@@ -56,7 +56,7 @@ namespace RiotGamesApi
         /// </exception>
         public static void AddLeagueOfLegendsApi(this IServiceCollection services, string riotApiKey,
             Func<CacheOption, CacheOption> cacheOption,
-            Func<RateLimitData, RateLimitData> rateLimitOption2)
+            Func<RateLimitBuilder, RateLimitBuilder> rateLimitOption2)
         {
             //can convertable to json
             var riotGamesApiBuilder = RiotGamesApiBuilder(riotApiKey);
@@ -65,15 +65,20 @@ namespace RiotGamesApi
             var cOptions = new CacheOption();
             riotGamesApiOption.CacheOptions = cacheOption != null ? cacheOption(cOptions) : cOptions;
 
-            RateLimitData limits = RateLimitData();//default settings
+            //RateLimitData limits = RateLimitData();//default settings
+            RateLimitBuilder rlb = null;
             if (rateLimitOption2 != null)
             {
-                limits = rateLimitOption2(limits); //user settings
+                //limits = rateLimitOption2(limits); //user settings
+                rlb = rateLimitOption2(new RateLimitBuilder()); //user settings
+            }
+            else
+            {
+                rlb = RateLimitBuilder();//default settings
             }
 
-            RateLimitBuilder rlb = RateLimitBuilder(limits);//default settings
             riotGamesApiOption.RateLimitOptions.All = rlb.Build();
-            riotGamesApiOption.RateLimitOptions.DisableLimiting = limits.DisableLimiting;
+            riotGamesApiOption.RateLimitOptions.DisableLimiting = false;//limits.DisableLimiting;
 
             services.AddSingleton<IApiOption>(riotGamesApiOption);
             services.AddMemoryCache();
@@ -82,17 +87,17 @@ namespace RiotGamesApi
             services.AddSingleton<LolApiRateLimit>(new LolApiRateLimit());
         }
 
-        private static RateLimitData RateLimitData()
-        {
-            RateLimitData limits = new RateLimitData();
-            limits.DisableLimiting = false;
-            limits.AddXAppRateLimits(new Dictionary<TimeSpan, int>()
-            {
-                {new TimeSpan(0, 2, 0), 100 },
-                {new TimeSpan(0, 0, 1), 20 }
-            });
-            return limits;
-        }
+        //private static RateLimitData RateLimitData()
+        //{
+        //    RateLimitData limits = new RateLimitData();
+        //    limits.DisableLimiting = false;
+        //    limits.AddXAppRateLimits(new Dictionary<TimeSpan, int>()
+        //    {
+        //        {new TimeSpan(0, 2, 0), 100 },
+        //        {new TimeSpan(0, 0, 1), 20 }
+        //    });
+        //    return limits;
+        //}
 
         private static IApiBuilder RiotGamesApiBuilder(string riotApiKey)
         {
@@ -277,13 +282,14 @@ namespace RiotGamesApi
             return riotGamesApiBuilder;
         }
 
-        private static RateLimitBuilder RateLimitBuilder(RateLimitData limits)
+        private static RateLimitBuilder RateLimitBuilder()
         {
-            RateLimitBuilder rlb = new RateLimitBuilder();
-            rlb.AddRateLimitFor(LolUrlType.Static, LolApiName.StaticData,
+            RateLimitBuilder limits = new RateLimitBuilder();
+
+            limits.AddRateLimitFor(LolUrlType.Static, LolApiName.StaticData,
                 new List<ApiLimit>()
                 {
-                    new ApiLimit(new TimeSpan(1,0,0),10,RateLimitType.MethodRate)
+                    new ApiLimit(new TimeSpan(1, 0, 0),10,RateLimitType.MethodRate)
                 }, LolApiMethodName.Champions,
                 LolApiMethodName.Items,
                 LolApiMethodName.LanguageStrings,
@@ -296,44 +302,53 @@ namespace RiotGamesApi
                 LolApiMethodName.SummonerSpells,
                 LolApiMethodName.Versions);
 
-            rlb.AddRateLimitFor(LolUrlType.NonStatic, LolApiName.Match,
+            limits.AddRateLimitFor(LolUrlType.NonStatic, LolApiName.Match,
                 new List<ApiLimit>()
                 {
-                    new ApiLimit(new TimeSpan(0,0,10),500, RateLimitType.MethodRate)
+                    new ApiLimit(new TimeSpan(0, 0, 10),500, RateLimitType.MethodRate)
                 }, LolApiMethodName.Matches, LolApiMethodName.Timelines);
 
-            rlb.AddRateLimitFor(LolUrlType.NonStatic, LolApiName.Match,
+            limits.AddRateLimitFor(LolUrlType.NonStatic, LolApiName.Match,
                 new List<ApiLimit>()
                 {
-                    new ApiLimit(new TimeSpan(0,0,10),1000, RateLimitType.MethodRate)
+                    new ApiLimit(new TimeSpan(0, 0, 10),1000, RateLimitType.MethodRate)
                 }, LolApiMethodName.MatchLists);
 
-            List<ApiLimit> allOtherEndpointsMethodLimits = new List<ApiLimit>();
-            allOtherEndpointsMethodLimits.Add(new ApiLimit(new TimeSpan(0, 0, 10), 20000, RateLimitType.MethodRate));
+            limits.AddRateLimitFor(LolUrlType.Status, LolApiName.Status, new List<ApiLimit>()
+            {
+                new ApiLimit(new TimeSpan(0, 0, 10), 20000, RateLimitType.MethodRate),
+                new ApiLimit(new TimeSpan(0, 2, 0), 100, RateLimitType.AppRate),
+                new ApiLimit(new TimeSpan(0, 0, 1), 20, RateLimitType.AppRate)
+            }, LolApiMethodName.ShardData);
 
-            var mergedLimits = limits.GetXAppRateLimit();
-            mergedLimits.AddRange(allOtherEndpointsMethodLimits);
-
-            rlb.AddRateLimitFor(LolUrlType.Status, LolApiName.Status, allOtherEndpointsMethodLimits, LolApiMethodName.ShardData);
-
-            rlb.AddRateLimitFor(LolUrlType.Tournament, new List<LolApiName>()
+            limits.AddRateLimitFor(LolUrlType.Tournament, new List<LolApiName>()
                 {
                     LolApiName.Tournament,
                     LolApiName.TournamentStub
-                }, mergedLimits,
+                }, new List<ApiLimit>()
+                {
+                    new ApiLimit(new TimeSpan(0, 0, 10), 20000, RateLimitType.MethodRate),
+                    new ApiLimit(new TimeSpan(0, 2, 0), 100, RateLimitType.AppRate),
+                    new ApiLimit(new TimeSpan(0, 0, 1), 20, RateLimitType.AppRate)
+                },
                 LolApiMethodName.Codes,
                 LolApiMethodName.LobbyEvents,
                 LolApiMethodName.Providers,
                 LolApiMethodName.Tournaments);
 
-            rlb.AddRateLimitFor(LolUrlType.NonStatic, new List<LolApiName>()
+            limits.AddRateLimitFor(LolUrlType.NonStatic, new List<LolApiName>()
                 {
                     LolApiName.ChampionMastery,
                     LolApiName.League,
                     LolApiName.Spectator,
                     LolApiName.Summoner,
                     LolApiName.Platform,
-                }, mergedLimits,
+                }, new List<ApiLimit>()
+                {
+                    new ApiLimit(new TimeSpan(0, 0, 10), 20000, RateLimitType.MethodRate),
+                    new ApiLimit(new TimeSpan(0, 2, 0), 100, RateLimitType.AppRate),
+                    new ApiLimit(new TimeSpan(0, 0, 1), 20, RateLimitType.AppRate)
+                },
                 LolApiMethodName.ChampionMasteries,
                 LolApiMethodName.Scores,
                 LolApiMethodName.ChallengerLeagues,
@@ -342,12 +357,25 @@ namespace RiotGamesApi
                 LolApiMethodName.Positions,
                 LolApiMethodName.ActiveGames,
                 LolApiMethodName.FeaturedGames,
-                LolApiMethodName.Summoners,
-                LolApiMethodName.Runes,
-                LolApiMethodName.Masteries,
-                LolApiMethodName.Champions
+                LolApiMethodName.Summoners
             );
-            return rlb;
+
+            //lol/platform/v3/champions
+            //lol/platform/v3/masteries/by-summoner/{summonerId}
+            //lol/platform/v3/runes/by-summoner/{summonerId}
+            limits.AddRateLimitFor(LolUrlType.NonStatic, new List<LolApiName>()
+                {
+                    LolApiName.Platform
+                }, new List<ApiLimit>()
+                {
+                    new ApiLimit(new TimeSpan(0,1,0),400, RateLimitType.MethodRate),
+                    new ApiLimit(new TimeSpan(0, 2, 0), 100, RateLimitType.AppRate),
+                    new ApiLimit(new TimeSpan(0, 0, 1), 20, RateLimitType.AppRate)
+                }, LolApiMethodName.Champions,
+                LolApiMethodName.Masteries,
+                LolApiMethodName.Runes);
+
+            return limits;
         }
 
         /// <summary>
