@@ -1,7 +1,7 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/ktka9cfk1rxe2mt3?svg=true)](https://ci.appveyor.com/project/msx752/riotgamesapi)
-[![nuget](https://img.shields.io/badge/Nuget-RiotGamesApi-brightgreen.svg?style=flat&maxAge=259200)](https://www.nuget.org/packages/RiotGamesApi)
-[![nuget](https://img.shields.io/badge/Nuget-RiotGamesApi.AspNet-brightgreen.svg?style=flat&maxAge=259200)](https://www.nuget.org/packages/RiotGamesApi.AspNet)
-[![nuget](https://img.shields.io/badge/Nuget-RiotGamesApi.AspNetCore-brightgreen.svg?style=flat&maxAge=259200)](https://www.nuget.org/packages/RiotGamesApi.AspNetCore)
+[![nuget](https://img.shields.io/badge/Nuget-RiotGamesAPI-brightgreen.svg?style=flat&maxAge=259200)](https://www.nuget.org/packages/RiotGamesApi)
+[![nuget](https://img.shields.io/badge/Nuget-RiotGamesAPI.AspNet-brightgreen.svg?style=flat&maxAge=259200)](https://www.nuget.org/packages/RiotGamesApi.AspNet)
+[![nuget](https://img.shields.io/badge/Nuget-RiotGamesAPI.AspNetCore-brightgreen.svg?style=flat&maxAge=259200)](https://www.nuget.org/packages/RiotGamesApi.AspNetCore)
 
 
 # RiotGamesApi
