@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using RiotGamesApi.Cache;
 using RiotGamesApi.RateLimit;
+using RiotGamesApi.RateLimit.Builder;
 
 namespace RiotGamesApi.AspNetCore
 {
@@ -50,7 +51,7 @@ namespace RiotGamesApi.AspNetCore
         /// A delegate callback throws an exception. 
         /// </exception>
         public static void AddLeagueOfLegendsApi(this IServiceCollection services, string riotApiKey,
-            Func<RateLimitData, RateLimitData> rateLimitOption2)
+            Func<RateLimitBuilder, RateLimitBuilder> rateLimitOption2)
         {
             global::RiotGamesApi.Extension2.AddLeagueOfLegendsApi(services, riotApiKey, null, rateLimitOption2);
         }
