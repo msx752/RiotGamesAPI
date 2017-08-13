@@ -3,7 +3,7 @@
     <metadata>
         <id>RiotGamesApi</id>
         <version>1.0.0.1</version>
-        <title>RiotGamesApi v3 and upper Portable API Wrapper</title>
+        <title>Portable RiotGamesApi Wrapper</title>
         <authors>Mustafa Salih ASLIM</authors>
         <owners>Mustafa Salih ASLIM</owners>
         <licenseUrl>https://github.com/msx752/RiotGamesApi/blob/master/LICENSE</licenseUrl>
