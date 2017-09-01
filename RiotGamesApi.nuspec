@@ -10,7 +10,7 @@
         <projectUrl>https://riotgamesapi.readme.io</projectUrl>
         <iconUrl>https://github.com/msx752/RiotGamesApi/blob/master/wfc.png?raw=true</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>The goal of this project is to allow C# developers who intend to use the Riot Games Web API to pull data from the server easily.(special thanks to Albin Ma)</description>
+        <description>The goal of this project is to allow C# developers who intend to use the Riot Games v3 Web API to pull data from the server easily.(special thanks to Albin Ma)</description>
         <summary>A portable RiotGames LeagueOfLegends API wrapper v3 and upper.</summary>
         <releaseNotes />
         <copyright>Copyright 2017</copyright>
