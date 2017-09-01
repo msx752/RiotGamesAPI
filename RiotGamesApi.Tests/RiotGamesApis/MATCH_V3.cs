@@ -33,11 +33,26 @@ namespace RiotGamesApi.Tests.RiotGamesApis
                 .For(LolApiMethodName.MatchLists)
                 .AddParameter(new ApiParameter(LolApiPath.ByAccount, AccountId))
                 .Build(Service_Platform)
-                .Get(/*
-                it has optional parameters
-                https://developer.riotgames.com/api-methods/#match-v3/GET_getMatchlist
-                */);
+                .Get(
+                new QueryParameter("beginIndex", 10),
+                new QueryParameter("champion", 25),
+                new QueryParameter("champion", 2),
+                new QueryParameter("endIndex", 25)
+                );
             Assert.False(rit.HasError);
+            Assert.Equal(rit.Result.matches.Count, 15);
+        }
+
+        [Fact]
+        public void GetMatchesByAccount_Second()
+        {
+            var rit = LolApi.NonStaticApi.Matchv3
+                .GetMatchListsByAccount(Service_Platform, AccountId,
+                null, null, 10, null, null,
+                new List<int>() { 25, 2 }, 25);
+
+            Assert.False(rit.HasError);
+            Assert.Equal(rit.Result.matches.Count, 15);
         }
 
         [Fact]

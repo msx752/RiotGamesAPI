@@ -108,7 +108,14 @@ namespace RiotGamesApi
                             @SecondaryMethodRefParameters += $",{paramName}";
                             if (paramType.StartsWith("List<"))
                             {
-                                optionalParameters += $"new QueryParameter(\"{query.Key}\", string.Join(\"&tags=\", {paramName}  ?? new {paramType}()) ),\r\n";
+                                //if (paramName == "_tags")
+                                //{
+                                optionalParameters += $"new QueryParameter(\"{query.Key}\", string.Join(\"&{paramName.TrimStart('_')}=\", {paramName}  ?? new {paramType}()) ),\r\n";
+                                //}
+                                //else
+                                //{
+                                //    optionalParameters += $"new QueryParameter(\"{query.Key}\", string.Join(\",\", {paramName}  ?? new {paramType}()) ),\r\n";
+                                //}
                                 //@optionalParameters += $"{{\"{query.Key}\",string.Join(\"&tags=\", {paramName}  ?? new {paramType}()) }},\r\n";
                             }
                             else

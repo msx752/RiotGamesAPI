@@ -121,13 +121,14 @@ namespace RiotGamesApi.Libraries.Lol.Models
             {
                 if (this.ApiName == LolApiName.StaticData ||
                     this.ApiName == LolApiName.Tournament ||
-                    this.ApiName == LolApiName.TournamentStub)
+                    this.ApiName == LolApiName.TournamentStub ||
+                    this.ApiName == LolApiName.Match)
                 {
                     this.ApiMethods[this.LastApiMethodIndex].TypesOfQueryParameter = queryParameterTypes;
                 }
                 else
                 {
-                    throw new RiotGamesApiException("QueryParameters only for static-data and tournament");
+                    throw new RiotGamesApiException("QueryParameters only for static-data and tournament OR Match");
                 }
             }
             catch (Exception e)

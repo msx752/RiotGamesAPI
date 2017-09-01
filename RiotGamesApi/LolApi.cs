@@ -795,22 +795,29 @@ namespace RiotGamesApi
                 return rit;
             }
 
-            public RiotGamesApi.Interfaces.IResult<RiotGamesApi.Libraries.Lol.v3.NonStaticEndPoints.Match.MatchlistDto> GetMatchListsByAccount(ServicePlatform platform, Int64 _ByAccount)
+            public RiotGamesApi.Interfaces.IResult<RiotGamesApi.Libraries.Lol.v3.NonStaticEndPoints.Match.MatchlistDto> GetMatchListsByAccount(ServicePlatform platform, Int64 _ByAccount, List<System.Int32> _queue = null, Int64? _endTime = null, Int32? _beginIndex = null, Int64? _beginTime = null, List<System.Int32> _season = null, List<System.Int32> _champion = null, Int32? _endIndex = null)
             {
-                var t = GetMatchListsByAccountAsync(platform, _ByAccount);
+                var t = GetMatchListsByAccountAsync(platform, _ByAccount, _queue, _endTime, _beginIndex, _beginTime, _season, _champion, _endIndex);
                 t.Wait();
                 RiotGamesApi.Interfaces.IResult<RiotGamesApi.Libraries.Lol.v3.NonStaticEndPoints.Match.MatchlistDto> rit = t.Result;
                 return rit;
             }
 
-            public async Task<RiotGamesApi.Interfaces.IResult<RiotGamesApi.Libraries.Lol.v3.NonStaticEndPoints.Match.MatchlistDto>> GetMatchListsByAccountAsync(ServicePlatform platform, Int64 _ByAccount)
+            public async Task<RiotGamesApi.Interfaces.IResult<RiotGamesApi.Libraries.Lol.v3.NonStaticEndPoints.Match.MatchlistDto>> GetMatchListsByAccountAsync(ServicePlatform platform, Int64 _ByAccount, List<System.Int32> _queue = null, Int64? _endTime = null, Int32? _beginIndex = null, Int64? _beginTime = null, List<System.Int32> _season = null, List<System.Int32> _champion = null, Int32? _endIndex = null)
             {
                 RiotGamesApi.Interfaces.IResult<RiotGamesApi.Libraries.Lol.v3.NonStaticEndPoints.Match.MatchlistDto> rit = await new ApiCall()
                     .SelectApi<RiotGamesApi.Libraries.Lol.v3.NonStaticEndPoints.Match.MatchlistDto>(LolApiName.Match, 3)
                     .For(LolApiMethodName.MatchLists)
                     .AddParameter(new ApiParameter(LolApiPath.ByAccount, _ByAccount))
                     .Build(platform)
-                    .GetAsync();
+                    .GetAsync(new QueryParameter("queue", string.Join("&queue=", _queue ?? new List<System.Int32>())),
+                        new QueryParameter("endTime", _endTime),
+                        new QueryParameter("beginIndex", _beginIndex),
+                        new QueryParameter("beginTime", _beginTime),
+                        new QueryParameter("season", string.Join("&season=", _season ?? new List<System.Int32>())),
+                        new QueryParameter("champion", string.Join("&champion=", _champion ?? new List<System.Int32>())),
+                        new QueryParameter("endIndex", _endIndex)
+                    );
                 return rit;
             }
 

@@ -240,6 +240,16 @@ namespace RiotGamesApi
                     apis.AddApi(LolApiName.Match, 3.0)
                         .GetMethod(LolApiMethodName.Matches, typeof(MatchDto), LolApiPath.OnlyMatchId)
                         .GetMethod(LolApiMethodName.MatchLists, typeof(MatchlistDto), LolApiPath.ByAccount)
+                        .AddQueryParameter(new Dictionary<string, Type>()
+                        {
+                            {"queue",typeof(List<int>)},
+                            {"endTime",typeof(long)},
+                            {"beginIndex",typeof(int) },
+                            {"beginTime",typeof(long) },
+                            {"season",typeof(List<int>) },
+                            {"champion",typeof(List<int>) },
+                            {"endIndex",typeof(int) }
+                        })
                         .GetMethod(LolApiMethodName.MatchLists, typeof(MatchlistDto), LolApiPath.ByAccountRecent)
                         .GetMethod(LolApiMethodName.Timelines, typeof(MatchTimelineDto), LolApiPath.ByMatch)
                         .GetMethod(LolApiMethodName.Matches, typeof(List<long>), LolApiPath.ByTournamentCodeIds)
