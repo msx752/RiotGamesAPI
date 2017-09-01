@@ -78,6 +78,7 @@ namespace RiotGamesApi
             }
 
             riotGamesApiOption.RateLimitOptions.All = rlb.Build();
+            riotGamesApiOption.RateLimitOptions.SetLeagueApiLimit(rlb.Special_Leagues_Limits);
             riotGamesApiOption.RateLimitOptions.DisableLimiting = false;//limits.DisableLimiting;
 
             services.AddSingleton<IApiOption>(riotGamesApiOption);
@@ -349,7 +350,6 @@ namespace RiotGamesApi
             limits.AddRateLimitFor(LolUrlType.NonStatic, new List<LolApiName>()
                 {
                     LolApiName.ChampionMastery,
-                    LolApiName.League,
                     LolApiName.Spectator,
                     LolApiName.Summoner,
                     LolApiName.Platform,
@@ -361,10 +361,6 @@ namespace RiotGamesApi
                 },
                 LolApiMethodName.ChampionMasteries,
                 LolApiMethodName.Scores,
-                LolApiMethodName.ChallengerLeagues,
-                LolApiMethodName.Leagues,
-                LolApiMethodName.MasterLeagues,
-                LolApiMethodName.Positions,
                 LolApiMethodName.ActiveGames,
                 LolApiMethodName.FeaturedGames,
                 LolApiMethodName.Summoners
@@ -385,6 +381,7 @@ namespace RiotGamesApi
                 LolApiMethodName.Masteries,
                 LolApiMethodName.Runes);
 
+            limits.LeaguesApiLimitsInMinute();
             return limits;
         }
 

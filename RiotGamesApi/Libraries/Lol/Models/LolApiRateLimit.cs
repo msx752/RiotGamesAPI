@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 using Force.DeepCloner;
 using RiotGamesApi.Enums;
 using RiotGamesApi.Interfaces;
 using RiotGamesApi.Libraries.Lol.Enums;
 using RiotGamesApi.Models;
+using RiotGamesApi.RateLimit;
 using RiotGamesApi.RateLimit.Property;
 
 namespace RiotGamesApi.Libraries.Lol.Models
@@ -130,8 +133,26 @@ namespace RiotGamesApi.Libraries.Lol.Models
             RLolApiMethodName regionLimit = Rates.Find(prop.Platform, prop.UrlType, prop.ApiName, prop.ApiMethod);
             if (regionLimit == null)
             {
-                var snc = ApiSettings.ApiOptions.RateLimitOptions.All[prop.UrlType];
-                Add(prop.Platform, prop.UrlType, snc.DeepClone());
+                var snc = ApiSettings.ApiOptions.RateLimitOptions.All[prop.UrlType].DeepClone();
+                //special rate-limiting for leagues
+                var methodRate = ApiSettings.ApiOptions.RateLimitOptions.FindLeagueApiLimit(prop.Platform);
+                if (methodRate != null)
+                {
+                    var app_rates = snc.Names.First().Limits.Where(p => p.LimitType == RateLimitType.AppRate);
+
+                    List<ApiLimit> lmts = new List<ApiLimit>();
+                    lmts.Add(methodRate);
+                    lmts.AddRange(app_rates);
+                    snc.Add(new RLolApiMethodName(LolApiName.League, new List<LolApiMethodName>()
+                    {
+                        LolApiMethodName.ChallengerLeagues,
+                        LolApiMethodName.Leagues,
+                        LolApiMethodName.MasterLeagues,
+                        LolApiMethodName.Positions
+                    }, lmts.ToArray()));
+                }
+                //
+                Add(prop.Platform, prop.UrlType, snc);
                 regionLimit = Rates.Find(prop.Platform, prop.UrlType, prop.ApiName, prop.ApiMethod);
             }
             //lock (_lock)

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using RiotGamesApi.Enums;
+using RiotGamesApi.Libraries.Enums;
 using RiotGamesApi.Libraries.Lol.Enums.GameConstants;
 using RiotGamesApi.Libraries.Lol.Enums;
 using RiotGamesApi.Libraries.Lol.v3.NonStaticEndPoints.League;

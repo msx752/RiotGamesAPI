@@ -110,7 +110,6 @@ namespace RiotGamesApi.Web
                 limits.AddRateLimitFor(LolUrlType.NonStatic, new List<LolApiName>()
                     {
                         LolApiName.ChampionMastery,
-                        LolApiName.League,
                         LolApiName.Spectator,
                         LolApiName.Summoner,
                         LolApiName.Platform,
@@ -122,10 +121,6 @@ namespace RiotGamesApi.Web
                     },
                     LolApiMethodName.ChampionMasteries,
                     LolApiMethodName.Scores,
-                    LolApiMethodName.ChallengerLeagues,
-                    LolApiMethodName.Leagues,
-                    LolApiMethodName.MasterLeagues,
-                    LolApiMethodName.Positions,
                     LolApiMethodName.ActiveGames,
                     LolApiMethodName.FeaturedGames,
                     LolApiMethodName.Summoners
@@ -146,6 +141,7 @@ namespace RiotGamesApi.Web
                     LolApiMethodName.Masteries,
                     LolApiMethodName.Runes);
 
+                limits.LeaguesApiLimitsInMinute();
                 return limits;
             });
         }
