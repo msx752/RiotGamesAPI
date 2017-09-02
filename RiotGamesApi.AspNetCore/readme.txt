@@ -1,22 +1,10 @@
 
-##
-#	as i mentioned before(in website), this is the last huge
-# reference changes, there is no any huge changes like this
-#		i am sorry for the re-configuration.
-# This changes are important to RiotGames's new game-apis, so 
-# there will be new games in RiotGames (because it's a company there will be :] ).
-# We can add their apis in this package easily (Libraries\[ShortGameName]\), of course some conflicts may occurs
-# such as RateLimiting, ApiRequest, ApiOptions, Enum-Types but i have added interfaces for the guide.
-# I know lack of comments in here but it is not hard to understand the methodology.
-# Feel free to add any comment/summary in codes. If you have any question, you can ask.
-##
-
 # Portable RiotGamesApi v3 and upper API Wrapper
 
 # Changelog
 	- https://riotgamesapi.readme.io/blog
 
-# Usage (it will re-configure for the different platforms)
+# Usage
 	- https://riotgamesapi.readme.io/docs
 
 # Supported Features
