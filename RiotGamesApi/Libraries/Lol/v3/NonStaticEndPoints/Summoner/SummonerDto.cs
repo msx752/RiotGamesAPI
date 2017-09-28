@@ -12,6 +12,9 @@ namespace RiotGamesApi.Libraries.Lol.v3.NonStaticEndPoints.Summoner
         [JsonProperty("id")]
         public long Id { get; set; }
 
+        [JsonProperty("accountId")]
+        public long AccountId { get; set; }
+
         [JsonProperty("name")]
         public string Name { get; set; }
 
