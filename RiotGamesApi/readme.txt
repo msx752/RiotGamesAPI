@@ -1,5 +1,4 @@
 
-
 # Portable RiotGamesApi v3 and upper API Wrapper
 
 # Changelog
@@ -16,6 +15,9 @@
 
 # Open Source
 	- https://github.com/msx752/RiotGamesApi
+
+# Information About News
+	- https://github.com/msx752/RiotGamesApi/issues
 
 # by Mustafa Salih ASLIM
 
