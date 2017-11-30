@@ -143,6 +143,21 @@
         ASSASSINATE_5x5 = 600,
 
         //Dark Star games
-        DARKSTAR_3x3 = 610,
+        DARKSTAR_3x3 = 610
+
+        /*
+800	Twisted Treeline	Co-op vs. AI Intermediate Bot games
+810	Twisted Treeline	Co-op vs. AI Intro Bot games
+820	Twisted Treeline	Co-op vs. AI Beginner Bot games
+830	Summoner's Rift	Co-op vs. AI Intro Bot games
+840	Summoner's Rift	Co-op vs. AI Beginner Bot games
+850	Summoner's Rift	Co-op vs. AI Intermediate Bot games
+940	Summoner's Rift	Nexus Siege games
+950	Summoner's Rift	Doom Bots games /w difficulty voting
+960	Summoner's Rift	Doom Bots games
+980	Valoran City Park	Star Guardian Invasion: Normal games
+990	Valoran City Park	Star Guardian Invasion: Onslaught games
+1000	Overcharge	PROJECT: Hunters games
+         * */
     }
 }
