@@ -33,5 +33,11 @@
 
         //Dark Star Map
         CosmicRuins = 16,
+
+        //Star Guardian Invasion Map
+        ValoranCityPark = 18,
+
+        // PROJECT: Hunters Map
+        Substructure43 = 19,
     }
 }

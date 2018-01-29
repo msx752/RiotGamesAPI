@@ -39,5 +39,9 @@
 
         //Dark Star games
         DARKSTAR,
+
+        STARGUARDIAN,  //  Star Guardian Invasion games
+
+        PROJECT //PROJECT: Hunters games
     }
 }
