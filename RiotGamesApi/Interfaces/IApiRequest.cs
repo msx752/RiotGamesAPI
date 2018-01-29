@@ -8,46 +8,62 @@ using RiotGamesApi.RateLimit.Property;
 
 namespace RiotGamesApi.Interfaces
 {
-    public interface IApiRequest<T> where T : new()
-    {
-        LolApiUrl ApiList { get; }
-        string BaseUrl { get; }
-        string CacheKey { get; }
-        bool Caching { get; }
-        LolApiMethodName Method { get; }
-        List<ApiParameter> ParametersWithValue { get; }
-        string Platform { get; }
-        RateLimitProperties Property { get; }
-        string RequestUrl { get; }
-        IResult<T> RiotResult { get; set; }
-        int SelectedApiIndex { get; }
-        List<LolApiMethod> SelectedSubUrlCache { get; }
-        LolUrlType UrlType { get; }
+	public interface IApiRequest<T> where T : new()
+	{
+		LolApiUrl ApiList { get; }
+		string BaseUrl { get; }
+		string CacheKey { get; }
+		bool Caching { get; }
 
-        IRequestMethod<T> Build(PhysicalRegion platform);
+		/// <summary>
+		/// forcing the custom cache condition's value 
+		/// </summary>
+		bool ForceCustomCacheRule { get; }
 
-        IRequestMethod<T> Build(ServicePlatform platform);
+		LolApiMethodName Method { get; }
+		List<ApiParameter> ParametersWithValue { get; }
+		string Platform { get; }
+		RateLimitProperties Property { get; }
+		string RequestUrl { get; }
+		IResult<T> RiotResult { get; set; }
+		int SelectedApiIndex { get; }
+		List<LolApiMethod> SelectedSubUrlCache { get; }
+		LolUrlType UrlType { get; }
 
-        IAddParameter<T> For(LolApiMethodName middleType);
+		IRequestMethod<T> Build(PhysicalRegion platform);
 
-        IResult<T> Get(params QueryParameter[] optionalParameters);
+		IRequestMethod<T> Build(ServicePlatform platform);
 
-        Task<IResult<T>> GetAsync(params QueryParameter[] optionalParameters);
+		IAddParameter<T> For(LolApiMethodName middleType);
 
-        IResult<T> Post(object bodyParameter = null);
+		IResult<T> Get(params QueryParameter[] optionalParameters);
 
-        IResult<T> Post(object bodyParameter = null, params QueryParameter[] optionalParameters);
+		Task<IResult<T>> GetAsync(params QueryParameter[] optionalParameters);
 
-        Task<IResult<T>> PostAsync(object bodyParameter = null);
+		IResult<T> Post(object bodyParameter = null);
 
-        Task<IResult<T>> PostAsync(object bodyParameter = null, params QueryParameter[] optionalParameters);
+		IResult<T> Post(object bodyParameter = null, params QueryParameter[] optionalParameters);
 
-        IResult<T> Put(object bodyParameter = null);
+		Task<IResult<T>> PostAsync(object bodyParameter = null);
 
-        Task<IResult<T>> PutAsync(object bodyParameter = null);
+		Task<IResult<T>> PostAsync(object bodyParameter = null, params QueryParameter[] optionalParameters);
 
-        string ToString();
+		IResult<T> Put(object bodyParameter = null);
 
-        IRequestMethod<T> UseCache(bool useCache = false);
-    }
+		Task<IResult<T>> PutAsync(object bodyParameter = null);
+
+		string ToString();
+
+		/// <summary>
+		/// before using cache set EnableStaticApiCaching to True 
+		/// </summary>
+		/// <param name="useCache">
+		/// </param>
+		/// <param name="forceCustomCacheRule">
+		/// forcing the custom cache condition's value 
+		/// </param>
+		/// <returns>
+		/// </returns>
+		IRequestMethod<T> UseCache(bool useCache = false, bool forceCustomCacheRule = true);
+	}
 }
