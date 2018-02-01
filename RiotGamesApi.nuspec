@@ -3,24 +3,50 @@
     <metadata>
         <id>RiotGamesApi</id>
         <version>1.0.0.1</version>
-        <title>Portable RiotGamesApi Wrapper</title>
+        <title>Riot Games API Library</title>
         <authors>Mustafa Salih ASLIM</authors>
         <owners>Mustafa Salih ASLIM</owners>
         <licenseUrl>https://github.com/msx752/RiotGamesApi/blob/master/LICENSE</licenseUrl>
         <projectUrl>https://riotgamesapi.readme.io</projectUrl>
         <iconUrl>https://github.com/msx752/RiotGamesApi/blob/master/wfc.png?raw=true</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>The goal of this project is to allow C# developers who intend to use the Riot Games v3 Web API to pull data from the server easily.(special thanks to Albin Ma)</description>
-        <summary>A portable RiotGames LeagueOfLegends API wrapper v3 and upper.</summary>
+        <description>The goal of this project is to allow C# developers who intend to use the Riot Games v3 Web API to pull data from the server easily
+        </description>
+        <summary>LeagueOfLegends API</summary>
         <releaseNotes />
         <copyright>Copyright 2017</copyright>
         <language />
-        <tags>RiotGamesApi Riot Games League of Legends Web API v3 C# Wrapper Portable</tags>
+        <tags>RiotGamesApi Riot Games League of Legends Web API v3 C# Wrapper Portable AspNet AspNetCore</tags>
         <dependencies>
             <group targetFramework=".NETStandard1.4">
                 <dependency id="DeepCloner" version="0.10.1" />
                 <dependency id="Microsoft.Extensions.Caching.Memory" version="1.1.2" />
                 <dependency id="Microsoft.Extensions.DependencyInjection" version="1.1.1" />
+                <dependency id="Newtonsoft.Json" version="10.0.3" />
+            </group>
+             <group targetFramework=".NETCoreApp1.1">
+                <dependency id="Microsoft.NETCore.App" version="1.1.2" />
+                <dependency id="Microsoft.AspNetCore.Http.Abstractions" version="1.1.2" />
+                <dependency id="DeepCloner" version="0.10.1" />
+                <dependency id="Microsoft.Extensions.DependencyInjection" version="1.1.1" />
+                <dependency id="Microsoft.Extensions.Caching.Memory" version="1.1.2" />
+                <dependency id="Newtonsoft.Json" version="10.0.3" />
+            </group>    
+            <group targetFramework=".NETCoreApp2.0">
+                <dependency id="Microsoft.NETCore.App" version="2.0.0" />
+                <dependency id="Microsoft.AspNetCore.Http.Abstractions" version="2.0.0" />
+                <dependency id="DeepCloner" version="0.10.1" />
+                <dependency id="Microsoft.Extensions.DependencyInjection" version="2.0.0" />
+                <dependency id="Microsoft.Extensions.Caching.Memory" version="2.0.0" />
+                <dependency id="Newtonsoft.Json" version="10.0.3" />
+            </group>
+             <group targetFramework=".NETFramework4.6.2">
+                <dependency id="Microsoft.AspNet.Mvc" version="5.2.3" />
+                <dependency id="Microsoft.Owin" version="3.1.0" />
+                <dependency id="NETStandard.Library" version="1.6.1" />
+                <dependency id="DeepCloner" version="0.10.1" />
+                <dependency id="Microsoft.Extensions.DependencyInjection" version="1.1.1" />
+                <dependency id="Microsoft.Extensions.Caching.Memory" version="1.1.2" />
                 <dependency id="Newtonsoft.Json" version="10.0.3" />
             </group>
         </dependencies>
@@ -30,5 +56,33 @@
         <file src="RiotGamesApi\bin\Release\netstandard1.4\RiotGamesApi.dll" target="lib\netstandard1.4\RiotGamesApi.dll" />
         <file src="RiotGamesApi\bin\Release\netstandard1.4\RiotGamesApi.xml" target="lib\netstandard1.4\RiotGamesApi.xml" />
         <file src="RiotGamesApi\bin\Release\netstandard1.4\RiotGamesApi.deps.json" target="lib\netstandard1.4\RiotGamesApi.deps.json" />
+
+
+
+        <file src="RiotGamesApi\bin\Release\netstandard1.4\RiotGamesApi.dll" target="lib\net462\RiotGamesApi.dll" />
+        <file src="RiotGamesApi\bin\Release\netstandard1.4\RiotGamesApi.xml" target="lib\net462\RiotGamesApi.xml" />
+        <file src="RiotGamesApi\bin\Release\netstandard1.4\RiotGamesApi.deps.json" target="lib\net462\RiotGamesApi.deps.json" />
+        <file src="RiotGamesApi.AspNet\bin\Release\RiotGamesApi.AspNet.dll" target="lib\net462\RiotGamesApi.AspNet.dll" />
+        <file src="RiotGamesApi.AspNet\bin\Release\RiotGamesApi.AspNet.xml" target="lib\net462\RiotGamesApi.AspNet.xml" />
+
+
+
+        <file src="RiotGamesApi\bin\Release\netstandard1.4\RiotGamesApi.dll" target="lib\netcoreapp11\RiotGamesApi.dll" />
+        <file src="RiotGamesApi\bin\Release\netstandard1.4\RiotGamesApi.xml" target="lib\netcoreapp11\RiotGamesApi.xml" />
+        <file src="RiotGamesApi\bin\Release\netstandard1.4\RiotGamesApi.deps.json" target="lib\netcoreapp11\RiotGamesApi.deps.json" />
+        <file src="RiotGamesApi.AspNetCore\bin\Release\netcoreapp1.1\RiotGamesApi.AspNetCore.deps.json" target="lib\netcoreapp11\RiotGamesApi.AspNetCore.deps.json" />
+        <file src="RiotGamesApi.AspNetCore\bin\Release\netcoreapp1.1\RiotGamesApi.AspNetCore.dll" target="lib\netcoreapp11\RiotGamesApi.AspNetCore.dll" />
+        <file src="RiotGamesApi.AspNetCore\bin\Release\netcoreapp1.1\RiotGamesApi.AspNetCore.xml" target="lib\netcoreapp11\RiotGamesApi.AspNetCore.xml" />
+
+
+
+
+
+        <file src="RiotGamesApi\bin\Release\netstandard1.4\RiotGamesApi.dll" target="lib\netcoreapp20\RiotGamesApi.dll" />
+        <file src="RiotGamesApi\bin\Release\netstandard1.4\RiotGamesApi.xml" target="lib\netcoreapp20\RiotGamesApi.xml" />
+        <file src="RiotGamesApi\bin\Release\netstandard1.4\RiotGamesApi.deps.json" target="lib\netcoreapp20\RiotGamesApi.deps.json" />
+        <file src="RiotGamesApi.AspNetCore\bin\Release\netcoreapp2.0\RiotGamesApi.AspNetCore.deps.json" target="lib\netcoreapp20\RiotGamesApi.AspNetCore.deps.json" />
+        <file src="RiotGamesApi.AspNetCore\bin\Release\netcoreapp2.0\RiotGamesApi.AspNetCore.dll" target="lib\netcoreapp20\RiotGamesApi.AspNetCore.dll" />
+        <file src="RiotGamesApi.AspNetCore\bin\Release\netcoreapp2.0\RiotGamesApi.AspNetCore.xml" target="lib\netcoreapp20\RiotGamesApi.AspNetCore.xml" />
     </files>
 </package>

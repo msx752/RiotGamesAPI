@@ -8,9 +8,11 @@ using RiotGamesApi.Libraries.Lol.Enums;
 using RiotGamesApi.RateLimit.Property;
 
 namespace RiotGamesApi.RateLimit.Builder
-{
+{/// <summary>
+ /// </summary>
 	public class RateLimitBuilder : IRateLimitBuilder
-	{
+	{/// <summary>
+	 /// </summary>
 		public RateLimitBuilder()
 		{
 			Limits = new ConcurrentDictionary<LolUrlType, RLolApiName>();
@@ -18,11 +20,35 @@ namespace RiotGamesApi.RateLimit.Builder
 
 		public ConcurrentDictionary<LolUrlType, RLolApiName> Limits { get; private set; }
 
+		/// <summary>
+		/// </summary>
+		/// <param name="type">
+		/// </param>
+		/// <param name="name">
+		/// </param>
+		/// <param name="limits">
+		/// </param>
+		/// <param name="methods">
+		/// </param>
+		/// <returns>
+		/// </returns>
 		public RateLimitBuilder AddRateLimitFor(LolUrlType type, LolApiName name, List<ApiLimit> limits, params LolApiMethodName[] methods)
 		{
 			return AddRateLimitFor(type, new List<LolApiName>() { name }, limits, methods);
 		}
 
+		/// <summary>
+		/// </summary>
+		/// <param name="type">
+		/// </param>
+		/// <param name="names">
+		/// </param>
+		/// <param name="limits">
+		/// </param>
+		/// <param name="methods">
+		/// </param>
+		/// <returns>
+		/// </returns>
 		public RateLimitBuilder AddRateLimitFor(LolUrlType type, List<LolApiName> names, List<ApiLimit> limits, params LolApiMethodName[] methods)
 		{
 			var rla = new RLolApiName();
@@ -120,6 +146,30 @@ namespace RiotGamesApi.RateLimit.Builder
 		internal ConcurrentDictionary<string, ApiLimit> Special_Leagues_Limits { get; } =
 			new ConcurrentDictionary<string, ApiLimit>();
 
+		/// <summary>
+		/// </summary>
+		/// <param name="EUW1">
+		/// </param>
+		/// <param name="NA1">
+		/// </param>
+		/// <param name="EUN1">
+		/// </param>
+		/// <param name="BR1">
+		/// </param>
+		/// <param name="KR">
+		/// </param>
+		/// <param name="LA1">
+		/// </param>
+		/// <param name="LA2">
+		/// </param>
+		/// <param name="TR1">
+		/// </param>
+		/// <param name="OC1">
+		/// </param>
+		/// <param name="JP1">
+		/// </param>
+		/// <param name="RU">
+		/// </param>
 		public void LeaguesApiLimitsInMinute(
 			int EUW1 = 300,
 			int NA1 = 270,
