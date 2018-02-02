@@ -10,8 +10,8 @@ A Portable RiotGames v3 and upper API Wrapper for C#
 Framework | Framework Version | Nuget | Nuget Version
 --- | --- | --- | ---
 [.NET Standard](https://github.com/msx752/RiotGamesAPI/tree/master/RiotGamesApi) | >=1.6 | [![nuget](https://img.shields.io/badge/Nuget-RiotGamesAPI-brightgreen.svg?style=flat&maxAge=259200)](https://www.nuget.org/packages/RiotGamesAPI) | [![NuGet](https://img.shields.io/nuget/v/RiotGamesAPI.svg)](https://www.nuget.org/packages/RiotGamesAPI)
-[.Asp.NET](https://github.com/msx752/RiotGamesAPI/tree/master/RiotGamesApi.AspNet) | >=4.6.2 | [![nuget](https://img.shields.io/badge/Nuget-RiotGamesAPI.AspNet-brightgreen.svg?style=flat&maxAge=259200)](https://www.nuget.org/packages/RiotGamesAPI.AspNet) | [![NuGet](https://img.shields.io/nuget/v/RiotGamesAPI.AspNet.svg)](https://www.nuget.org/packages/RiotGamesAPI.AspNet)
-[.Asp.NET Core](https://github.com/msx752/RiotGamesAPI/tree/master/RiotGamesApi.AspNetCore) | >=1.1 | [![nuget](https://img.shields.io/badge/Nuget-RiotGamesAPI.AspNetCore-brightgreen.svg?style=flat&maxAge=259200)](https://www.nuget.org/packages/RiotGamesAPI.AspNetCore) | [![NuGet](https://img.shields.io/nuget/v/RiotGamesAPI.AspNetCore.svg)](https://www.nuget.org/packages/RiotGamesAPI.AspNetCore)
+[.Asp.NET](https://github.com/msx752/RiotGamesAPI/tree/master/RiotGamesApi) | >=4.6.2 | [![nuget](https://img.shields.io/badge/Nuget-RiotGamesAPI-brightgreen.svg?style=flat&maxAge=259200)](https://www.nuget.org/packages/RiotGamesAPI) | [![NuGet](https://img.shields.io/nuget/v/RiotGamesAPI.svg)](https://www.nuget.org/packages/RiotGamesAPI)
+[.Asp.NET Core](https://github.com/msx752/RiotGamesAPI/tree/master/RiotGamesApi) | >=1.1 | [![nuget](https://img.shields.io/badge/Nuget-RiotGamesAPI-brightgreen.svg?style=flat&maxAge=259200)](https://www.nuget.org/packages/RiotGamesAPI) | [![NuGet](https://img.shields.io/nuget/v/RiotGamesAPI.svg)](https://www.nuget.org/packages/RiotGamesAPI)
 
 ## API Library Table
 ApiName | Version
